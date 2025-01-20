@@ -104,9 +104,9 @@ WSGI_APPLICATION = "StudyMAIT.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MySQL과 동일한 엔진 사용
-        'NAME': os.getenv('MYSQL_DATABASE', 'your_database'),
-        'USER': os.getenv('MYSQL_USER', 'your_user'),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'your_password'),
+        'NAME': os.getenv('MYSQL_DATABASE', 'userdatabase'),
+        'USER': os.getenv('MYSQL_USER', 'myuser'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'mypassword'),
         'HOST': 'db',  # docker-compose에서 정의한 MariaDB 서비스 이름
         'PORT': '3306',
         'OPTIONS': {
