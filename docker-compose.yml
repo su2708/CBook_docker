@@ -1,0 +1,46 @@
+version: "3.9" # Docker-Compose 파일 버전
+
+services: # 각 서비스 정의
+  db:
+    image: mariadb:10.5 # MariaDB 공식 이미지
+    container_name: mariadb
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  backend: # Django Backend
+    build: # Dockerfile 경로
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: django_backend
+    ports: # 포트 매핑 (호스트:컨테이너)
+      - "8000:8000"
+    volumes: # 볼륨 마운트
+      - ./backend:/app
+      - media_data:/app/media # 미디어 파일을 위한 볼륨
+    depends_on: # 의존 서비스
+      db:
+        condition: service_healthy
+    environment: # 환경 변수
+      - DEBUG=True
+      - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
+      - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
+      - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
+    env_file:
+      - .env
+
+volumes: # 볼륨 정의
+  mariadb_data:
+  media_data:
