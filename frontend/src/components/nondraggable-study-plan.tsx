@@ -6,13 +6,11 @@ import { CSS } from '@dnd-kit/utilities'
 interface DraggableStudyPlanProps {
   id: string
   week: string
-  isFirstWeek?: boolean
 }
 
-export function DraggableStudyPlan({ 
+export function NonDraggableStudyPlan({ 
   id, 
   week,
-  isFirstWeek = false
 }: DraggableStudyPlanProps) {
   const {
     attributes,
@@ -23,7 +21,7 @@ export function DraggableStudyPlan({
     isDragging,
   } = useSortable({ 
     id,
-    disabled: isFirstWeek
+    disabled: true
   })
 
   const style = {
@@ -37,8 +35,7 @@ export function DraggableStudyPlan({
       style={style}
       {...attributes}
       {...listeners}
-      className={`select-none ${isDragging ? 'z-10' : ''} ${isFirstWeek ? 'cursor-default' : 'cursor-grab'} 
-                  p-4 mb-4`}
+      className={`select-none ${isDragging ? 'z-10' : ''} cursor-default p-4 mb-4`}
     >
       <div className="flex items-center">
         <h3 className="text-lg font-semibold mr-2">{week}</h3>

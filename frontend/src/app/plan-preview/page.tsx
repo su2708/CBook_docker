@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useApi } from "@/hooks/useApi"
-import { DraggableStudyPlan } from '@/components/draggable-study-plan'
+import { NonDraggableStudyPlan } from '@/components/nondraggable-study-plan'
 import { StudyPlanItem } from '@/components/study-plan-item'
 import {
   DndContext,
@@ -140,14 +140,14 @@ export default function PlanPreviewPage() {
     }
 
     // Reconstruct the total_plan based on the current order of planItems
-    const total_plan: { [key: string]: { task: string; is_done: boolean }[] } = {}
+    const total_plan: { [key: string]: string[] } = {}
     let currentWeek = ''
     planItems.forEach((item) => {
       if (item.type === 'week') {
         currentWeek = item.content
         total_plan[currentWeek] = []
       } else if (item.type === 'task' && currentWeek) {
-        total_plan[currentWeek].push({ task: item.content, is_done: false })
+        total_plan[currentWeek].push(item.content)
       }
     })
 
@@ -208,10 +208,13 @@ export default function PlanPreviewPage() {
   const formattedTestDay = formatDate(studyPlan.test_day)
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="container max-w-4xl mx-auto">
       <div className="sticky top-0 bg-background z-10 p-4 border-b">
         <h1 className="text-2xl font-bold">{studyPlan.book_title}</h1>
         <div className="flex justify-between items-center mt-2">
+          <div className="text-sm">
+            <span className="font-semibold">공부 시작일:</span> {formattedToday}
+          </div>
           <div className="text-sm">
             <span className="font-semibold">시험 날짜:</span> {formattedTestDay} ({
               calculateDaysRemaining(formattedTestDay, formattedToday)}일 남음)
@@ -245,11 +248,10 @@ export default function PlanPreviewPage() {
           >
             {planItems.map((item) => (
               item.type === 'week' ? (
-                <DraggableStudyPlan
+                <NonDraggableStudyPlan
                   key={item.id}
                   id={item.id}
                   week={item.content}
-                  isFirstWeek={item.weekNumber === 1}
                 />
               ) : (
                 <StudyPlanItem
