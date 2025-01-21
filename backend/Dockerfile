@@ -5,7 +5,8 @@ FROM python:3.11.11-slim
 WORKDIR /app
 
 # 필수 패키지 설치 (MariaDB/MySQL 클라이언트 설치 시 필요한 의존성 추가)
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
     curl \
     build-essential \
     python3-dev \
