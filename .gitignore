@@ -8,6 +8,7 @@ db.*
 __pycache__
 .DS_Store
 AIBookAgent/books
+backend/staticfiles
 
 ### Django ###
 *.log

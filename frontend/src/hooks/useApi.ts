@@ -64,7 +64,7 @@ export function useApi() {
           if (response.status === 401) {
             throw new Error('Unauthorized');
           }
-          return { data: null, error: responseData.message || 'API request failed', isLoading: false, status: response.status };
+          return { data: responseData, error: responseData.message || 'API request failed', isLoading: false, status: response.status };
         }
 
         return { data: responseData, error: null, isLoading: false, status: response.status };
