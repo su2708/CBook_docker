@@ -31,6 +31,7 @@ if not SECRET_KEY:
     raise ValueError("DJANGO_SECRET_KEY 환경 변수 에러")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -63,8 +64,12 @@ INSTALLED_APPS = [
     # Local
     "accounts",
     "testplans",
-    "progress",
+    "archievements",
     "chatrooms",
+    
+    # 리마인더 
+    "django_apscheduler",
+    "reminder",
 ]
 
 MIDDLEWARE = [

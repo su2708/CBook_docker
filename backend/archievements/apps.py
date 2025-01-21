@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ProgressConfig(AppConfig):
+class ArchievementsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'progress'
+    name = 'archievements'
