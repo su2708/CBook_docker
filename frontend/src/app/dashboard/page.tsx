@@ -167,6 +167,7 @@ export default function Page() {
         `/api/v1/testplans/?user_id=${userId}&plan_id=${planId}`,
         "GET",
       )
+      console.log(data)
       if (status === 200 && data) {
         setExamData(data)
         updateDashboardData(data)

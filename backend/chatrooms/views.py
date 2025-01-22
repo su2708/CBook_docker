@@ -90,6 +90,39 @@ class ChatListView(APIView):
             return Response({
                 "message": f"채팅방 생성 오류 {str(e)}"
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    def delete(self, request):
+        """
+        새로운 채팅 방을 생성 
+        """
+        # request params에서 user_id와 chat_id 추출. 기본 값은 1
+        user_id = request.GET.get('user_id', 1)
+        chat_id = request.GET.get('chat_id')
+        
+        if not chat_id:
+            return Response({
+                "message": "'chat_id'는 필수 입력 사항입니다."
+            }, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            # 삭제할 채팅방 검색 
+            chatroom = ChatRoom.objects.filter(user_id=user_id, chat_id=chat_id).first()
+            
+            if not chatroom:
+                return Response({
+                    "message": f"채팅 방 {chat_id}를 찾을 수 없습니다."
+                }, status=status.HTTP_404_NOT_FOUND)
+                
+            # 채팅방 삭제 
+            chatroom.delete()
+            return Response({
+                "message": f"{chat_id}번 채팅 방이 성공적으로 삭제되었습니다."
+            }, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({
+                "message": f"채팅 방 삭제 오류: {str(e)}"
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 # 채팅 메시지에 대한 class
@@ -101,10 +134,10 @@ class ChatMsgListView(APIView):
         특정 채팅방(chat_id)에 해당하는 모든 메시지를 반환 
         """
         # request params에서 chat_id 추출. 기본 값은 1
-        chat_id = request.GET.get("chat_id", 1)
+        chatroom_id = request.GET.get("chatroom_id", 1)
         
         try:
-            messages = ChatMessage.objects.filter(user_id=user_id, chat_id=chat_id).order_by("sent_at")
+            messages = ChatMessage.objects.filter(user_id=user_id, chatroom_id=chatroom_id).order_by("sent_at")
             
             if not messages.exists():
                 return Response({
@@ -124,7 +157,7 @@ class ChatMsgListView(APIView):
         새로운 채팅 메시지를 생성하며, 시험 계획 요청을 처리 
         """
         # request params에서 chat_id 추출. 기본 값은 1
-        chat_id = request.GET.get("chat_id", 1)
+        chatroom_id = request.GET.get("chatroom_id", 1)
         
         try:
             # 클라이언트로부터 필요한 데이터 추출 
@@ -135,7 +168,7 @@ class ChatMsgListView(APIView):
                 }, status=status.HTTP_400_BAD_REQUEST)
             
             # 최신 대화 10개 가져오기
-            past_messages = ChatMessage.objects.filter(user_id=user_id, chat_id=chat_id).order_by("-sent_at")[:10]
+            past_messages = ChatMessage.objects.filter(user_id=user_id, chatroom_id=chatroom_id).order_by("-sent_at")[:10]
             
             # 1-1. 과거 대화 내역을 JSON 형태로 정리 (최신 -> 예전 순으로 정렬)
             chat_history = []
@@ -164,11 +197,12 @@ class ChatMsgListView(APIView):
             action, ai_response = chatbot(chatbot_input)
             
             # 질문과 응답을 chat_id에 저장하기 위한 ChatRoom instance 가져오기 
-            chat_room = ChatRoom.objects.filter(user_id=user_id, chat_id=chat_id).first()
+            chat_room = ChatRoom.objects.filter(user_id=user_id, chat_id=chatroom_id).first()
             
             # user_msg 저장
             ChatMessage.objects.create(
-                chat_id = chat_room,
+                chat_id = chat_room,  # ChatRoom 객체 저장 
+                chatroom_id = chat_room.chat_id,  # ChatRoom의 chat_id를 저장 
                 user_id = request.user,
                 message_content = user_msg,
                 sent_by = 'user', 
@@ -178,6 +212,7 @@ class ChatMsgListView(APIView):
             # ai_response 저장 
             ChatMessage.objects.create(
                 chat_id = chat_room,
+                chatroom_id = chat_room.chat_id,
                 user_id = request.user,
                 message_content = ai_response,
                 sent_by = "ai",

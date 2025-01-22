@@ -28,3 +28,4 @@ urlpatterns = [
     path("api/v1/chatrooms/", include("chatrooms.urls")),  # 챗봇 관련 기능
     path('api/v1/reminder/', include('reminder.urls')),  # 리마인더 관련 기능
 ]
+
