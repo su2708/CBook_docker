@@ -22,6 +22,8 @@ interface ValidationResult {
   message: string
 }
 
+const api_base = process.env.NEXT_PUBLIC_API_URL
+
 export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
   const [showPassword, setShowPassword] = useState(false)
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)

@@ -8,6 +8,8 @@ interface ApiResponse<T> {
   status: number;
 }
 
+const api_base = process.env.NEXT_PUBLIC_API_URL
+
 export function useApi() {
   const { logout } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +20,7 @@ export function useApi() {
       throw new Error('No refresh token available');
     }
 
-    const response = await fetch('/api/v1/accounts/token/refresh/', {
+    const response = await fetch(api_base + '/api/v1/accounts/token/refresh/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +47,7 @@ export function useApi() {
       let accessToken = localStorage.getItem('accessToken');
 
       const makeRequest = async (token: string | null): Promise<ApiResponse<T>> => {
-        const response = await fetch(url, {
+        const response = await fetch(api_base + url, {
           method,
           headers: {
             'Content-Type': 'application/json',
