@@ -196,7 +196,7 @@ export default function PlanPreviewPage() {
   const formattedTestDay = formatDate(studyPlan.test_day)
 
   return (
-    <div className="container max-w-3xl mx-auto">
+    <div className="container max-w-4xl mx-auto">
       <div className="sticky top-0 bg-background z-10 p-4 border-b">
         <h1 className="text-2xl font-bold">{studyPlan.book_title}</h1>
         <div className="flex justify-between items-center mt-2">
@@ -205,19 +205,15 @@ export default function PlanPreviewPage() {
             {calculateDaysRemaining(formattedTestDay, formattedToday)}일 남음)
           </div>
         </div>
-        <div className="mt-4 flex space-x-4">
-          <div className="flex-1">
-            <Input
-              placeholder="시험 이름 (필수)"
-              value={testName}
-              onChange={(e) => setTestName(e.target.value)}
-              className={nameError ? "border-red-500" : ""}
-            />
-            {nameError && <p className="text-red-500 mt-1 text-sm">시험 이름은 필수 항목입니다.</p>}
-          </div>
-          <div className="flex-1">
-            <Input placeholder="시험 장소 (선택)" value={testPlace} onChange={(e) => setTestPlace(e.target.value)} />
-          </div>
+        <div className="mt-4 space-y-2">
+          <Input
+            placeholder="시험 이름 (필수)"
+            value={testName}
+            onChange={(e) => setTestName(e.target.value)}
+            className={nameError ? "border-red-500" : ""}
+          />
+          {nameError && <p className="text-red-500 text-sm">시험 이름은 필수 항목입니다.</p>}
+          <Input placeholder="시험 장소 (선택)" value={testPlace} onChange={(e) => setTestPlace(e.target.value)} />
         </div>
       </div>
 
@@ -226,15 +222,10 @@ export default function PlanPreviewPage() {
           <SortableContext items={planItems.map((item) => item.id)} strategy={verticalListSortingStrategy}>
             {planItems.map((item) =>
               item.type === "week" ? (
-                <div key={item.id}>
-                  <NonDraggableStudyPlan id={item.id} week={item.content} />
-                  {planItems
-                    .filter((task) => task.type === "task" && task.weekNumber === item.weekNumber)
-                    .map((task) => (
-                      <StudyPlanItem key={task.id} id={task.id} task={task.content} />
-                    ))}
-                </div>
-              ) : null,
+                <NonDraggableStudyPlan key={item.id} id={item.id} week={item.content} />
+              ) : (
+                <StudyPlanItem key={item.id} id={item.id} task={item.content} />
+              ),
             )}
           </SortableContext>
         </DndContext>
@@ -253,3 +244,4 @@ export default function PlanPreviewPage() {
     </div>
   )
 }
+
