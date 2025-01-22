@@ -3,14 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: false,
   trailingSlash: true,
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: "/api/v1/:path*",
-        destination: "http://localhost:8000/api/v1/:path*/"
-      }
+        source: "/",
+        destination: "/landing",
+        permanent: true,
+      },
     ]
-  }
+  },
 };
 
 export default nextConfig;

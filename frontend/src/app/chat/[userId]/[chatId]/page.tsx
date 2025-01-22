@@ -217,21 +217,18 @@ export default function ChatPage() {
       <AlertDialogContent className="max-w-xl max-h-[80vh] overflow-y-auto">
         <AlertDialogHeader>
           <AlertDialogTitle className="mb-2">📘 사용자 도움말</AlertDialogTitle>
-          <AlertDialogDescription className="space-y-6">
+          <AlertDialogDescription />
+          <div className="space-y-4 text-sm text-muted-foreground">
+            <p className="text-base font-semibold">수험서 검색</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>알라딘 API를 사용하여 제공됩니다.</li>
+              <li>
+                검색 결과는 아래 카테고리에 한정됩니다.<br/>
+                고등학교 참고서/수험서, 자격증/외국어, 중학교/초등학교 참고서, 컴퓨터/모바일
+              </li>
+            </ul>
 
-            <div>
-            <div className="mb-2"><text className="text-base font-semibold">수험서 검색</text></div>
-              <ul className="list-disc pl-5 space-y-1">
-                <li>알라딘 API를 사용하여 제공됩니다.</li>
-                <li>
-                  검색 결과는 아래 카테고리에 한정됩니다.<br/>
-                  고등학교 참고서/수험서, 자격증/외국어, 중학교/초등학교 참고서, 컴퓨터/모바일
-                </li>
-              </ul>
-            </div>
-
-            <div>
-            <div className="mb-2"><text className="text-base font-semibold">이용 방법</text></div>
+            <p className="text-base font-semibold">이용 방법</p>
               <ol className="list-decimal pl-5 space-y-2">
                 <li>
                   <strong>시험 준비</strong>
@@ -266,8 +263,7 @@ export default function ChatPage() {
                   </ul>
                 </li>
               </ol>
-            </div>
-          </AlertDialogDescription>
+          </div>
         </AlertDialogHeader>
         <AlertDialogAction className="mt-4">닫기</AlertDialogAction>
       </AlertDialogContent>

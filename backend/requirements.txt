@@ -21,6 +21,7 @@ decorator==5.1.1
 distro==1.9.0
 Django==4.2
 django-apscheduler==0.7.0
+django-cors-headers==4.6.0
 django-extensions==3.2.3
 django-seed==0.3.1
 djangorestframework==3.14.0

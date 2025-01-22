@@ -213,9 +213,6 @@ export default function PlanPreviewPage() {
         <h1 className="text-2xl font-bold">{studyPlan.book_title}</h1>
         <div className="flex justify-between items-center mt-2">
           <div className="text-sm">
-            <span className="font-semibold">공부 시작일:</span> {formattedToday}
-          </div>
-          <div className="text-sm">
             <span className="font-semibold">시험 날짜:</span> {formattedTestDay} ({
               calculateDaysRemaining(formattedTestDay, formattedToday)}일 남음)
           </div>

@@ -1,12 +1,16 @@
 # Base image
 FROM node:18-alpine
 
+# Install curl
+RUN apk add --no-cache curl
+
 # Set working directory
 WORKDIR /app
 
 # Copy package.json and install dependencies
 COPY package*.json ./
 RUN npm install
+RUN yarn install
 
 # Copy the rest of the application
 COPY . .
