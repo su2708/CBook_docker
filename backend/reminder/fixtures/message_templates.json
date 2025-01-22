@@ -1,98 +1,386 @@
 [
     {
-        "model": "reminder.messagetemplate",
-        "pk": 1,
-        "fields": {
-            "style": "encourage",
-            "content": "{username}님! 오늘도 {test_name} 공부 화이팅입니다! {test_date}까지 얼마 안 남았어요. 할 수 있습니다! 💪"
+    "model": "reminder.messagetemplate",
+    "pk": 1,
+    "fields": {
+        "style": "encourage",
+        "content": "{username}님! 오늘도 {test_name} 공부 화이팅입니다! {test_date}까지 얼마 안 남았어요. 할 수 있습니다! 💪\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 2,
+    "fields": {
+        "style": "encourage",
+        "content": "잠깐 지치셨나요? {username}님의 {test_name} 합격을 응원합니다! {test_date}의 영광의 순간을 위해 힘내세요! ✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 3,
+    "fields": {
+        "style": "encourage",
+        "content": "{username}님의 열정이 빛나는 순간입니다! {test_date}에 있을 {test_name}, 끝까지 최선을 다해봐요! 🌟\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 4,
+    "fields": {
+        "style": "encourage",
+        "content": "한 걸음 한 걸음이 모여 큰 성과가 됩니다. {username}님의 {test_name} 준비, 오늘도 파이팅! {test_date}까지 함께해요! 💫\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 5,
+    "fields": {
+        "style": "encourage",
+        "content": "꾸준한 노력이 기적을 만듭니다. {username}님, {test_date}의 {test_name} 합격을 향해 오늘도 화이팅! 🌈\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 6,
+    "fields": {
+        "style": "encourage",
+        "content": "작은 진전도 소중한 발걸음입니다. {username}님, {test_name} 공부 잘 되시나요? {test_date}까지 응원할게요! 🎯\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 7,
+    "fields": {
+        "style": "encourage",
+        "content": "지금의 노력이 미래의 자신감이 됩니다. {username}님, {test_date}의 {test_name}을 위해 힘내세요! ⭐\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 8,
+    "fields": {
+        "style": "encourage",
+        "content": "매 순간 성장하는 {username}님을 응원합니다! {test_name} 준비, 오늘도 파이팅! {test_date}까지 함께해요! 🌱\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 9,
+    "fields": {
+        "style": "encourage",
+        "content": "포기하지 않는 그 마음이 성공의 열쇠입니다. {username}님, {test_name} 합격을 향해 달려가보아요! {test_date}까지 힘내세요! 🔑\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 10,
+    "fields": {
+        "style": "encourage",
+        "content": "오늘 하루도 수고하셨어요! {username}님의 {test_name} 공부, 한 걸음 더 나아갔네요. {test_date}까지 파이팅! 🌟\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 11,
+    "fields": {
+        "style": "encourage",
+        "content": "꿈을 향한 여정, {username}님과 함께합니다! {test_date}의 {test_name}, 끝까지 응원할게요! 🚀\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 12,
+    "fields": {
+        "style": "encourage",
+        "content": "매일의 작은 성취가 큰 성공을 만듭니다. {username}님, {test_name} 준비 힘내세요! {test_date}까지 파이팅! 💝\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 13,
+    "fields": {
+        "style": "harsh",
+        "content": "{username}님, 지금 SNS 하실 시간 있으신가요? {test_date}에 있을 {test_name}, 합격하고 싶으시다면 지금 당장 공부하세요! 😤\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 14,
+    "fields": {
+        "style": "harsh",
+        "content": "실패는 노력하지 않은 자의 변명입니다. {username}님, {test_date}까지 남은 시간이 얼마 없어요. {test_name} 합격을 위해 지금 움직이세요! 💢\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 15,
+    "fields": {
+        "style": "harsh",
+        "content": "{username}님, 지금 자리에서 일어나세요! {test_name} 시험은 {test_date}입니다. 실패하고 싶지 않다면 지금 당장 시작하세요! ⚡\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 16,
+    "fields": {
+        "style": "harsh",
+        "content": "핸드폰 보고 계신가요? {username}님, {test_date}의 {test_name}이 기다리지 않습니다. 지금 당장 공부하세요! 🔥\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 17,
+    "fields": {
+        "style": "harsh",
+        "content": "변명은 그만! {username}님, {test_name} 공부해야 하는 거 아시죠? {test_date}까지 시간이 얼마 안 남았습니다! ⏰\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 18,
+    "fields": {
+        "style": "harsh",
+        "content": "지금 쉬고 계신다구요? {username}님, {test_date}에 있을 {test_name}에서 후회하고 싶지 않다면 당장 공부하세요! 📚\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 19,
+    "fields": {
+        "style": "harsh",
+        "content": "시간 낭비하고 계신가요? {username}님, {test_name} 합격은 저절로 오지 않습니다. {test_date}까지 제대로 준비하세요! ⚠️\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 20,
+    "fields": {
+        "style": "harsh",
+        "content": "게으름 피우지 마세요! {username}님, {test_date}의 {test_name}은 기다려주지 않아요. 지금 당장 시작하세요! 💪\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 21,
+    "fields": {
+        "style": "harsh",
+        "content": "아직도 준비 안 하고 계신가요? {username}님, {test_name} 시험이 {test_date}입니다. 정신 차리세요! ⚡\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 22,
+    "fields": {
+        "style": "harsh",
+        "content": "더 이상의 시간 낭비는 없습니다! {username}님, {test_date}까지 {test_name} 완벽하게 준비하세요! 🎯\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 23,
+    "fields": {
+        "style": "harsh",
+        "content": "준비가 부족하면 후회만 남습니다. {username}님, {test_name} 시험 준비 제대로 하세요! {test_date}까지 시간이 얼마 없어요! ⏳\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 24,
+    "fields": {
+        "style": "harsh",
+        "content": "지금 놀 때가 아닙니다! {username}님, {test_date}의 {test_name}을 위해 제대로 준비하세요! 🔔\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 25,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님, {test_date}에 예정된 {test_name} 학습 시간입니다. 계획하신 대로 진행해 주시면 감사하겠습니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 26,
+    "fields": {
+        "style": "polite",
+        "content": "안녕하세요, {username}님. {test_name} 시험까지 {test_date} 남았습니다. 학습에 도움이 필요하시다면 언제든 말씀해 주세요.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 27,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님, {test_date}에 있을 {test_name} 시험 준비는 잘 진행되고 계신가요? 오늘도 좋은 결과 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 28,
+    "fields": {
+        "style": "polite",
+        "content": "존경하는 {username}님, {test_name} 학습 시간을 안내드립니다. {test_date}까지 체계적인 준비가 되시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 29,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님께서 설정하신 {test_name} 학습 일정을 알려드립니다. {test_date}까지 효율적인 학습이 되시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 30,
+    "fields": {
+        "style": "polite",
+        "content": "안녕하십니까, {username}님. {test_date}에 예정된 {test_name} 시험 준비는 순조롭게 진행되고 계신지요?\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 31,
+    "fields": {
+    "style": "polite",
+        "content": "{username}님, {test_name} 학습을 위한 알림입니다. {test_date}까지 목표하신 바를 이루시길 기원합니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
         }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 2,
-        "fields": {
-            "style": "encourage",
-            "content": "잠깐 지치셨나요? {username}님의 {test_name} 합격을 응원합니다! {test_date}의 영광의 순간을 위해 힘내세요! ✨"
+    "model": "reminder.messagetemplate",
+    "pk": 32,
+    "fields": {
+        "style": "polite",
+        "content": "안녕하세요, {username}님. {test_name} 시험까지 {test_date} 남았습니다. 학습 계획에 차질이 없으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
         }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 3,
-        "fields": {
-            "style": "encourage",
-            "content": "{username}님의 열정이 빛나는 순간입니다! {test_date}에 있을 {test_name}, 끝까지 최선을 다해봐요! 🌟"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 33,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님의 {test_name} 시험 준비를 응원드립니다. {test_date}까지 최선의 결과가 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 4,
-        "fields": {
-            "style": "harsh",
-            "content": "{username}님, 지금 SNS 하실 시간 있으신가요? {test_date}에 있을 {test_name}, 합격하고 싶으시다면 지금 당장 공부하세요! 😤"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 34,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님, 계획하신 {test_name} 학습 시간입니다. {test_date}까지 체계적인 준비가 되시길 기원합니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 5,
-        "fields": {
-            "style": "harsh",
-            "content": "실패는 노력하지 않은 자의 변명입니다. {username}님, {test_date}까지 남은 시간이 얼마 없어요. {test_name} 합격을 위해 지금 움직이세요! 💢"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 35,
+    "fields": {
+        "style": "polite",
+        "content": "학습 알림 드립니다. {username}님의 {test_name} 시험이 {test_date}로 예정되어 있습니다. 차분한 준비 부탁드립니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 6,
-        "fields": {
-            "style": "harsh",
-            "content": "{username}님, 지금 자리에서 일어나세요! {test_name} 시험은 {test_date}입니다. 실패하고 싶지 않다면 지금 당장 시작하세요! ⚡"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 36,
+    "fields": {
+        "style": "polite",
+        "content": "{username}님, {test_date}의 {test_name} 시험을 위한 준비는 순조로우신지요? 좋은 결과 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 7,
-        "fields": {
-            "style": "polite",
-            "content": "{username}님, {test_date}에 예정된 {test_name} 학습 시간입니다. 계획하신 대로 진행해 주시면 감사하겠습니다."
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 37,
+    "fields": {
+        "style": "witty",
+        "content": "앗! {username}님, {test_date}에 있을 {test_name}이 손을 흔들며 부르고 있어요! 어서 공부하러 가볼까요? 📚✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 8,
-        "fields": {
-            "style": "polite",
-            "content": "안녕하세요, {username}님. {test_name} 시험까지 {test_date} 남았습니다. 학습에 도움이 필요하시다면 언제든 말씀해 주세요."
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 38,
+    "fields": {
+        "style": "witty",
+        "content": "똑똑~ {username}님! {test_name} 공부 택배가 도착했습니다! {test_date}까지 열심히 배송 준비해볼까요? 📦💫\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 9,
-        "fields": {
-            "style": "polite",
-            "content": "{username}님, {test_date}에 있을 {test_name} 시험 준비는 잘 진행되고 계신가요? 오늘도 좋은 결과 있으시길 바랍니다."
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 39,
+    "fields": {
+        "style": "witty",
+        "content": "주문하신 {test_name} 합격이 {test_date}에 도착 예정입니다! {username}님, 지금 열심히 준비하시면 무료 배송! 📝🚀\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 10,
-        "fields": {
-            "style": "witty",
-            "content": "앗! {username}님, {test_date}에 있을 {test_name}이 손을 흔들며 부르고 있어요! 어서 공부하러 가볼까요? 📚✨"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 40,
+    "fields": {
+        "style": "witty",
+        "content": "띵동! {username}님의 {test_name} 학습 시간이 배달되었습니다! {test_date}까지 신선도 유지 필수! 🎁✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 11,
-        "fields": {
-            "style": "witty",
-            "content": "똑똑~ {username}님! {test_name} 공부 택배가 도착했습니다! {test_date}까지 열심히 배송 준비해볼까요? 📦💫"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 41,
+    "fields": {
+        "style": "witty",
+        "content": "잠시만요! {username}님, {test_date}의 {test_name}이(가) 당신을 찾고 있어요! 도망가면 안 돼요~ 😎🎯\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     },
     {
-        "model": "reminder.messagetemplate",
-        "pk": 12,
-        "fields": {
-            "style": "witty",
-            "content": "주문하신 {test_name} 합격이 {test_date}에 도착 예정입니다! {username}님, 지금 열심히 준비하시면 무료 배송! 📝🚀"
-        }
+    "model": "reminder.messagetemplate",
+    "pk": 42,
+    "fields": {
+        "style": "witty",
+        "content": "띵동! {username}님의 오늘의 할일: {test_name} 공부하기! {test_date}까지 미션 클리어 해주세요! 🎮✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 43,
+    "fields": {
+        "style": "witty",
+        "content": "서프라이즈! {username}님을 위한 특별한 선물: {test_name} 학습 타임! {test_date}까지 함께해요~ 🎉📚\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 44,
+    "fields": {
+        "style": "witty",
+        "content": "짜잔! {username}님의 {test_name} 공부 시간이 찾아왔어요! {test_date}까지 즐겁게 달려보아요~ 🎪✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 45,
+    "fields": {
+        "style": "witty",
+        "content": "breaking news! {username}님의 {test_name} 학습 타임이 시작됩니다! {test_date}까지 실시간 중계! 📺💫\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 46,
+    "fields": {
+        "style": "witty",
+        "content": "어흠! {username}님, {test_date}의 {test_name}이 지금 당신을 부르고 있다는 소문이... 확인하러 가볼까요? 🕵️‍♂️✨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 47,
+    "fields": {
+        "style": "witty",
+        "content": "잠깐! {username}님의 {test_name} 학습 레벨이 너무 낮아요! {test_date}까지 레벨업 필수! 🎮⬆️\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
+    },
+    {
+    "model": "reminder.messagetemplate",
+    "pk": 48,
+    "fields": {
+        "style": "witty",
+        "content": "웜웜! {username}님! {test_name} 공부하러 가자요~ {test_date}까지 함께 달려보아요! 🚗💨\n\n[StudyMAIT] 바로가기 : https://studymait.com"
+    }
     }
 ]

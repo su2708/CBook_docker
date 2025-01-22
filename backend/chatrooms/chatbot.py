@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 import json
 import os
-
+from datetime import datetime as dt
 
 # 환경 변수 로드
 load_dotenv()
@@ -191,6 +191,7 @@ def make_plans(query: str, chat_history):
     
     template = [(
         "system",
+        f"오늘 날짜는 {dt.today()} 입니다.\n" +
         """
         당신은 시험 계획을 세워주는 AI 챗봇입니다.
         과거의 대화 내역에서 사용자의 마지막 질문과 관련된 책의 정보가 있다면 그 책의 목차를 활용해 학습 계획을 만들어주세요.
@@ -199,7 +200,7 @@ def make_plans(query: str, chat_history):
         2. 구체적인 책 제목과 시험 날짜가 주어지지 않았다면 빈 문자열로 두고, 시험 기간은 4주로 설정하세요.
         3. 목차가 HTML 형식으로 제공되면 텍스트로 변환하여 사용하세요.
         4. 모든 학습 계획은 반드시 복습 절차를 포함하며, 전체 계획을 기본 5개 단위로 분배하세요. 상황에 따라 분배 개수를 조정할 수 있습니다.
-        5. 작성 예시를 보고 반드시 아래의 json 형식에 맞게 계획을 작성하세요.
+        5. 작성 예시를 보고 반드시 아래의 json 형식에 맞게 계획을 작성하세요. (단, ```json ``` 처럼 json임을 표시하는 마크다운은 작성하지 마세요.)
         6. 출력된 JSON이 유효한 형식인지 확인하세요. 유효하지 않을 경우 적절히 포맷팅을 수정하세요.
 
         - 형식
