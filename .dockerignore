@@ -1,0 +1,4 @@
+.env
+__pycache__
+AIBookAgent/books
+node_modules
