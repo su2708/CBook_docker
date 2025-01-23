@@ -49,7 +49,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React 개발 서버
     "http://localhost:8000",
-    "https://yourdomain.com",
+    "http://3.39.181.117:3000/",
 ]
 
 # Application definition
