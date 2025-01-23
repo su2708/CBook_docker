@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import { useAuth } from "@/contexts/AuthContext"
 import { useRouter } from "next/navigation"
+import { EditReminderModal } from "@/components/EditReminderModal"
 
 import {
   Clock,
@@ -32,10 +33,8 @@ import {
 import { ModeToggle } from "@/components/theme-toggle"
 import { calculateDaysRemaining, formatDate } from "@/utils/date"
 import { useApi } from "@/hooks/useApi"
-import { TimePicker } from "@/components/ui/time-picker"
 import { Switch } from "@/components/ui/switch"
 import { StudyTimer } from "@/components/StudyTimer"
-import { Input } from "@/components/ui/input"
 
 function CircularProgress({ value }: { value: number }) {
   const radius = 60
@@ -136,6 +135,7 @@ export default function Page() {
   const [reminderSettings, setReminderSettings] = useState<ReminderSettings | null>(null)
   const [isAllTasksCompleted, setIsAllTasksCompleted] = useState(false)
   const [showNotificationSettings, setShowNotificationSettings] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
 
   const { apiCall } = useApi()
 
@@ -520,7 +520,7 @@ export default function Page() {
               {examData.test_plan.total_plan[currentWeek].map((task, index) => (
                 <ProgressDot
                   key={index}
-                  status={task.is_done ? "completed" : index === weeklyProgress.completed ? "current" : "upcoming"}
+                  status={task.is_done ? "completed" : "upcoming"}
                 />
               ))}
             </div>
@@ -606,42 +606,22 @@ export default function Page() {
 
         {showNotificationSettings && (
           <div className={reminderSettings.is_active ? "" : "opacity-50 pointer-events-none"}>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mt-4">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
                 <span>학습 알림 시간</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span>시작</span>
-                <TimePicker
-                  value={`${tempReminderSettings?.start_hour.toString().padStart(2, "0")}:${tempReminderSettings?.start_minute.toString().padStart(2, "0")}`}
-                  onChange={(time) => {
-                    const [hour, minute] = time.split(":").map(Number)
-                    setTempReminderSettings((prev) => ({
-                      ...prev!,
-                      start_hour: hour,
-                      start_minute: minute,
-                    }))
-                    updateReminderSettings("start_hour", hour)
-                    updateReminderSettings("start_minute", minute)
-                  }}
-                  maxTime={`${tempReminderSettings?.end_hour.toString().padStart(2, "0")}:${tempReminderSettings?.end_minute.toString().padStart(2, "0")}`}
-                />
-                <span>종료</span>
-                <TimePicker
-                  value={`${tempReminderSettings?.end_hour.toString().padStart(2, "0")}:${tempReminderSettings?.end_minute.toString().padStart(2, "0")}`}
-                  onChange={(time) => {
-                    const [hour, minute] = time.split(":").map(Number)
-                    setTempReminderSettings((prev) => ({
-                      ...prev!,
-                      end_hour: hour,
-                      end_minute: minute,
-                    }))
-                    updateReminderSettings("end_hour", hour)
-                    updateReminderSettings("end_minute", minute)
-                  }}
-                  minTime={`${tempReminderSettings?.start_hour.toString().padStart(2, "0")}:${tempReminderSettings?.start_minute.toString().padStart(2, "0")}`}
-                />
+              <div className="flex items-center gap-4">
+                <span>
+                  {reminderSettings.start_hour.toString().padStart(2, '0')}:
+                  {reminderSettings.start_minute.toString().padStart(2, '0')}
+                  <span> ~ </span> 
+                  {reminderSettings.end_hour.toString().padStart(2, '0')}:
+                  {reminderSettings.end_minute.toString().padStart(2, '0')}
+                </span>
+                <Button onClick={() => setShowEditModal(true)} variant="outline" size="sm">
+                  수정하기
+                </Button>
               </div>
             </div>
 
@@ -656,6 +636,31 @@ export default function Page() {
                   updateReminderSettings("interval_hours", Number(value))
                 }}
               >
+                {
+                  showEditModal && (
+                    <EditReminderModal
+                      reminderSettings={reminderSettings}
+                      onClose={() => setShowEditModal(false)}
+                      onSave={async (newSettings) => {
+                        try {
+                          const { status } = await apiCall(
+                            `/api/v1/reminder/settings/${reminderSettings.reminder_id}/`,
+                            "PATCH",
+                            newSettings,
+                          )
+                          if (status === 200) {
+                            setReminderSettings({ ...reminderSettings, ...newSettings })
+                            setShowEditModal(false)
+                          } else {
+                            console.error("Failed to update reminder settings")
+                          }
+                        } catch (error) {
+                          console.error("Error updating reminder settings:", error)
+                        }
+                      }}
+                    />
+                  )
+                }
                 <SelectTrigger className="w-32">
                   <SelectValue placeholder="알림 주기" />
                 </SelectTrigger>
@@ -692,6 +697,7 @@ export default function Page() {
           </div>
         )}
       </div>
+      
 
       {/* Bottom Buttons */}
       <div className="flex gap-4">
