@@ -38,6 +38,7 @@ SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    '13.125.219.225',
     'localhost',
     '127.0.0.1',
     '0.0.0.0',
