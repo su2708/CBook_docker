@@ -13,9 +13,10 @@ import { LoadingMessage } from "@/components/loading-message"
 import { HelpCircle } from "lucide-react"
 import {
   AlertDialog,
-  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
+  AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
@@ -265,7 +266,9 @@ export default function ChatPage() {
               </ol>
           </div>
         </AlertDialogHeader>
-        <AlertDialogAction className="mt-4">닫기</AlertDialogAction>
+        <AlertDialogFooter>
+          <AlertDialogCancel>닫기</AlertDialogCancel>
+        </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   )
