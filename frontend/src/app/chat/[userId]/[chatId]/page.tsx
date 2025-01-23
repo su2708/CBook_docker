@@ -82,7 +82,7 @@ export default function ChatPage() {
 
   const fetchMessages = async () => {
     const { data, error, status } = await apiCall<ChatMessage[] | { message: string }>(
-      `/api/v1/chatrooms/${userId}/?chatroom_id=${chatId}`,
+      `/api/v1/chatrooms/${userId}/?chatroom_id=${chatId}`, "GET"
     )
     if (status === 204 || (data && "message" in data && data.message === "아직 대화가 시작되지 않았습니다.")) {
       setMessages([])

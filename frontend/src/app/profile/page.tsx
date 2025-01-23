@@ -112,7 +112,7 @@ export default function ProfilePage() {
 
   const fetchProfileData = async () => {
     try {
-      const profileResponse = await apiCall<UserProfile>("/api/v1/accounts/profile/")
+      const profileResponse = await apiCall<UserProfile>("/api/v1/accounts/profile/", "GET")
 
       if (profileResponse.error) {
         console.error("Failed to fetch profile:", profileResponse.error)
@@ -120,9 +120,9 @@ export default function ProfilePage() {
         setProfile(profileResponse.data)
 
         const [examsResponse, chatRoomsResponse, achievementsResponse] = await Promise.all([
-          apiCall<OngoingExam[]>(`/api/v1/testplans/?user_id=${profileResponse.data.id}`),
-          apiCall<ChatRoom[]>(`/api/v1/chatrooms/?user_id=${profileResponse.data.id}`),
-          apiCall<Achievement[]>(`/api/v1/archievements/?user_id=${profileResponse.data.id}`),
+          apiCall<OngoingExam[]>(`/api/v1/testplans/?user_id=${profileResponse.data.id}`, "GET"),
+          apiCall<ChatRoom[]>(`/api/v1/chatrooms/?user_id=${profileResponse.data.id}`, "GET"),
+          apiCall<Achievement[]>(`/api/v1/archievements/?user_id=${profileResponse.data.id}`, "GET"),
         ])
 
         setIsLoadingExams(false)
@@ -418,7 +418,7 @@ export default function ProfilePage() {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>로그아웃 하시겠습니까?</AlertDialogTitle>
-            <AlertDialogDescription>로그아웃하면 현재 세션이 종료됩니다.</AlertDialogDescription>
+            <AlertDialogDescription>학습 알림을 설정하셨다면 계속 받을 수 있습니다.</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>취소</AlertDialogCancel>
