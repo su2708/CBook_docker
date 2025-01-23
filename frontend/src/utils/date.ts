@@ -10,7 +10,7 @@ export function calculateDaysRemaining(targetDate: string, startDate: string): n
       const year = date.slice(0, 4);
       const month = date.slice(4, 6);
       const day = date.slice(6, 8);
-      date = `${year}-${month}-${day}`; // YYYY-MM-DD 형식으로 변환
+      date = `${year}/${month}/${day}`; // YYYY/MM/DD 형식으로 변환
   }
     return new Date(date).toLocaleDateString('ko-KR', {
       year: 'numeric',
