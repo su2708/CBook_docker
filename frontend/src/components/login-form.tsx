@@ -14,8 +14,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 const signInSchema = z.object({
-  username: z.string().min(1, "Username is required"),
-  password: z.string().min(1, "Password is required"),
+  username: z.string().min(1, "사용자 이름을 입력해주세요."),
+  password: z.string().min(1, "비밀번호를 입력해주세요."),
 })
 
 type SignInData = z.infer<typeof signInSchema>

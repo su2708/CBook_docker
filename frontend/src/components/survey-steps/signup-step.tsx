@@ -74,7 +74,7 @@ export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold text-center">회원가입</h1>
-      <p className="text-sm text-gray-500 text-center">사용자 이름과 비밀번호를 입력 후 <br />각각 체크 표시를 눌러 주세요.</p>
+      <p className="text-sm text-gray-500 text-center">사용자 이름과 비밀번호를 입력 후 <br />각각 체크 표시를 눌러서 유효성 검사를 해주세요.</p>
 
       <div className="space-y-4">
         <div className="space-y-2">
