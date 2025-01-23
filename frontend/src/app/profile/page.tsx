@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { Bell, Settings, LogOut, User, Trash2, MoreHorizontal } from "lucide-react"
+import { Settings, LogOut, User, Trash2, MoreHorizontal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -269,10 +269,6 @@ export default function ProfilePage() {
         </div>
         <div className="flex items-center gap-4">
           <ModeToggle />
-          <button className="relative">
-            <Bell className="h-6 w-6" />
-            <span className="absolute -top-1 -right-1 h-2 w-2 bg-red-500 rounded-full" />
-          </button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button>
@@ -297,7 +293,7 @@ export default function ProfilePage() {
 
       {/* Achievements Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">나의 업적</h2>
+        <h2 className="text-2xl font-semibold">나의 업적</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {isLoadingAchievements ? (
             [1, 2].map((i) => <Skeleton key={i} className="h-32 w-full rounded-lg" />)
@@ -318,7 +314,7 @@ export default function ProfilePage() {
 
       {/* Ongoing Exams Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">진행 중인 시험</h2>
+        <h2 className="text-2xl font-semibold">진행 중인 시험</h2>
         <div className="space-y-4">
           {isLoadingExams ? (
             <Skeleton className="h-24 w-full rounded-lg" />
@@ -370,7 +366,7 @@ export default function ProfilePage() {
 
       {/* Chat Rooms Section */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold">채팅 계속하기</h2>
+        <h2 className="text-2xl font-semibold">채팅 계속하기</h2>
         <div className="space-y-4">
           {isLoadingChatRooms ? (
             <Skeleton className="h-24 w-full rounded-lg" />
@@ -445,7 +441,13 @@ export default function ProfilePage() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>취소</AlertDialogCancel>
-            <AlertDialogAction onClick={handleCreateNewExam}>확인</AlertDialogAction>
+            <AlertDialogAction
+              onClick={handleCreateNewExam}
+              disabled={!newExamName.trim()}
+              className={!newExamName.trim() ? "opacity-50 cursor-not-allowed" : ""}
+            >
+              확인
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

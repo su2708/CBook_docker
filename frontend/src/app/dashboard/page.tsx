@@ -546,7 +546,7 @@ export default function Page() {
         </button>
         <Card className="p-6">
           <div className="flex-1">
-            <h2 className="text-lg font-semibold">이번 학습</h2>
+            <h2 className="text-xl font-semibold">이번 학습</h2>
             {currentTask && (
               <div className="flex justify-between items-center mt-2">
                 <div>
@@ -692,11 +692,6 @@ export default function Page() {
           </div>
         )}
       </div>
-
-      {/* Message Card */}
-      <Card className="p-6 text-center">
-        <p>대충 좋은 말.</p>
-      </Card>
 
       {/* Bottom Buttons */}
       <div className="flex gap-4">
