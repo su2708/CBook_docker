@@ -205,15 +205,23 @@ export default function PlanPreviewPage() {
             {calculateDaysRemaining(formattedTestDay, formattedToday)}일 남음)
           </div>
         </div>
-        <div className="mt-4 space-y-2">
-          <Input
-            placeholder="시험 이름 (필수)"
-            value={testName}
-            onChange={(e) => setTestName(e.target.value)}
-            className={nameError ? "border-red-500" : ""}
-          />
-          {nameError && <p className="text-red-500 text-sm">시험 이름은 필수 항목입니다.</p>}
-          <Input placeholder="시험 장소 (선택)" value={testPlace} onChange={(e) => setTestPlace(e.target.value)} />
+        <div className="mt-4 flex space-x-4">
+          <div className="flex-1">
+            <Input
+              placeholder="시험 이름 (필수)"
+              value={testName}
+              onChange={(e) => setTestName(e.target.value)}
+              className={nameError ? "border-red-500" : ""}
+            />
+            {nameError && <p className="text-red-500 text-sm mt-2">시험 이름은 필수 항목입니다.</p>}
+          </div>
+          <div className="flex-1">
+            <Input 
+              placeholder="시험 장소 (선택)" 
+              value={testPlace} 
+              onChange={(e) => setTestPlace(e.target.value)} 
+            />
+          </div>
         </div>
       </div>
 
