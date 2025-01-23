@@ -76,7 +76,9 @@ services: # 각 서비스 정의
         condition: service_healthy
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-    command: npm run dev
+    command: >
+      sh -c "yarn build &&
+        yarn start"
     env_file:
       - .env
 

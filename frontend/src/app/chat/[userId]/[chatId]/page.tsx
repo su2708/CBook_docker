@@ -56,7 +56,6 @@ function cleanJsonString(originalString: string) {
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
-  const [isTyping, setIsTyping] = useState(false)
   const [loadingMessageId, setLoadingMessageId] = useState<number | null>(null)
   const [showGuide, setShowGuide] = useState(false)
   const { apiCall } = useApi()
@@ -310,7 +309,7 @@ export default function ChatPage() {
 
       <div className="sticky bottom-0 bg-background z-10 border-t">
         <div className="container max-w-4xl mx-auto p-4">
-          <MessageInput onSendMessage={handleSendMessage} disabled={isTyping} />
+          <MessageInput onSendMessage={handleSendMessage}/>
         </div>
       </div>
 
