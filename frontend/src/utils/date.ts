@@ -16,5 +16,5 @@ export function calculateDaysRemaining(targetDate: string, startDate: string): n
       year: 'numeric',
       month: '2-digit',
       day: '2-digit'
-    }).replace(/\. /g, '.').slice(0, -1)
+    }).replace(/\. /g, '/').slice(0, -1)
   }
