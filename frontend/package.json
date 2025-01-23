@@ -37,11 +37,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-<<<<<<< HEAD
     "@types/node": "22.10.9",
-=======
-    "@types/node": "22.10.8",
->>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
