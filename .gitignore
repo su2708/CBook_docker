@@ -9,6 +9,7 @@ __pycache__
 .DS_Store
 AIBookAgent/books
 backend/staticfiles
+backend/AIBookAgent/books_vectorstore/index.faiss
 
 ### Django ###
 *.log
