@@ -43,7 +43,11 @@ services: # 각 서비스 정의
     command: >
       sh -c "python manage.py migrate &&
         python manage.py collectstatic --noinput &&
+<<<<<<< HEAD
         gunicorn --bind 0.0.0.0:8000 StudyMAIT.wsgi:application"
+=======
+        python manage.py runserver 0.0.0.0:8000"
+>>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
     depends_on: # 의존 서비스
       db:
         condition: service_healthy

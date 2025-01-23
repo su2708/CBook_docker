@@ -43,8 +43,11 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '0.0.0.0',
     'django_backend',
+<<<<<<< HEAD
     'studymait.today',
     'www.studymait.today',
+=======
+>>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
 ]
 
 # 특정 도메인만 허용 (프로덕션 환경 권장)
@@ -52,8 +55,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React 개발 서버
     "http://localhost:8000",
     "http://3.39.181.117:3000",
+<<<<<<< HEAD
     "http://studymait.today",
     "http://www.studymait.today",
+=======
+>>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
 ]
 
 # Application definition
@@ -170,8 +176,12 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
+<<<<<<< HEAD
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_ROOT = "/app/staticfiles/"
+=======
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+>>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -206,5 +216,9 @@ SIMPLE_JWT = {
 
 # 미디어 파일 설정
 MEDIA_URL = '/media/'
+<<<<<<< HEAD
 # MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_ROOT = "/app/media"
+=======
+MEDIA_ROOT = BASE_DIR / 'media'
+>>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
