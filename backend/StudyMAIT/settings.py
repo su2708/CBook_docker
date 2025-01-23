@@ -38,7 +38,7 @@ SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '13.125.219.225',
+    '3.39.181.117',
     'localhost',
     '127.0.0.1',
     '0.0.0.0',
@@ -49,7 +49,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React 개발 서버
     "http://localhost:8000",
-    "https://yourdomain.com",
+    "http://3.39.181.117:3000",
 ]
 
 # Application definition
