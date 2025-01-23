@@ -29,7 +29,4 @@ ENV PYTHONUNBUFFERED=1
 
 # Django 서버 실행
 # CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-<<<<<<< HEAD
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "StudyMAIT.wsgi:application"]
-=======
->>>>>>> 561ec6ae18160d98721ec50e96a81c8bf9a520a0
