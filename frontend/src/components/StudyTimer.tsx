@@ -68,7 +68,7 @@ export function StudyTimer() {
   return (
     <div className="flex flex-col items-center space-y-6 relative w-full h-full">
       <div className="flex justify-between items-center w-full">
-        <h2 className="text-2xl font-bold flex-grow">학습 타이머</h2>
+        <h2 className="text-xl font-semibold flex-grow">학습 타이머</h2>
         <Button onClick={isRunning ? handleReset : handleStart}>
           {isRunning ? (
             <>

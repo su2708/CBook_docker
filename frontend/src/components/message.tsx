@@ -43,11 +43,11 @@ export function Message({ isUser, plan, content, userName, children }: MessagePr
     <div className={`w-full p-4 ${isUser ? 'bg-background' : 'bg-primary'}`}>
       <div className="container max-w-4xl mx-auto">
         <div className="flex items-start gap-3">
-          <Avatar>
+          <Avatar className='bg-secondary'>
             {isUser ? (
               <AvatarImage src="/placeholder.svg" alt="User" />
             ) : (
-              <AvatarImage src="/placeholder.svg" alt="AI" />
+              <AvatarImage src="/StudyMAIT_Logo.png" alt="AI" className="object-contain p-2"/>
             )}
             <AvatarFallback>{isUser ? '나' : 'AI'}</AvatarFallback>
           </Avatar>
