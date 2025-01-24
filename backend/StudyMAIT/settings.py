@@ -54,6 +54,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://3.39.181.117:3000",
     "http://studymait.today",
     "http://www.studymait.today",
+    "http://django_backend",
 ]
 
 # Application definition
