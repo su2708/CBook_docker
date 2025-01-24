@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { Send } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void

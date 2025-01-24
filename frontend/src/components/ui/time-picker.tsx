@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Label } from "@/components/ui/label"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Label } from "./label"
+import { Popover, PopoverContent, PopoverTrigger } from "./popover"
+import { cn } from "../../lib/utils"
+import { Button } from "./button"
+import { Input } from "./input"
 
 interface TimePickerProps {
   value?: string

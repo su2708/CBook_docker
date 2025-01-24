@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import { useAuth } from "@/contexts/AuthContext"
+import { useAuth } from "../contexts/AuthContext"
 
 interface ApiResponse<T> {
   data: T | null
