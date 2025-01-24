@@ -1,8 +1,8 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "../../components/ui/button"
+import { Card } from "../../components/ui/card"
 import Image from "next/image"
 
 export default function LandingPage() {

@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState, useCallback } from "react"
-import { useAuth } from "@/contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext"
 import { useRouter } from "next/navigation"
-import { EditReminderModal } from "@/components/EditReminderModal"
+import { EditReminderModal } from "../../components/EditReminderModal"
 
 import {
   Clock,
@@ -15,10 +15,10 @@ import {
   AlarmClockIcon as Alarm,
   ChevronDown,
 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ProgressDot } from "@/components/progress-dot"
+import { Button } from "../../components/ui/button"
+import { Card } from "../../components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
+import { ProgressDot } from "../../components/progress-dot"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -29,12 +29,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-import { ModeToggle } from "@/components/theme-toggle"
-import { calculateDaysRemaining, formatDate } from "@/utils/date"
-import { useApi } from "@/hooks/useApi"
-import { Switch } from "@/components/ui/switch"
-import { StudyTimer } from "@/components/StudyTimer"
+} from "../../components/ui/alert-dialog"
+import { ModeToggle } from "../../components/theme-toggle"
+import { calculateDaysRemaining, formatDate } from "../../utils/date"
+import { useApi } from "../../hooks/useApi"
+import { Switch } from "../../components/ui/switch"
+import { StudyTimer } from "../../components/StudyTimer"
 
 function CircularProgress({ value }: { value: number }) {
   const radius = 60

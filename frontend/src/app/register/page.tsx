@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Card } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Button } from "@/components/ui/button"
-import { SignupStep } from "@/components/survey-steps/signup-step"
-import { EmailStep } from "@/components/survey-steps/email-step"
-import { SlackStep } from "@/components/survey-steps/slack-step"
-import { SuccessStep } from "@/components/survey-steps/success-step"
-import { useApi } from "@/hooks/useApi"
+import { Card } from "../../components/ui/card"
+import { Progress } from "../../components/ui/progress"
+import { Button } from "../../components/ui/button"
+import { SignupStep } from "../../components/survey-steps/signup-step"
+import { EmailStep } from "../../components/survey-steps/email-step"
+import { SlackStep } from "../../components/survey-steps/slack-step"
+import { SuccessStep } from "../../components/survey-steps/success-step"
+import { useApi } from "../../hooks/useApi"
 import { ChevronLeft } from "lucide-react"
 
 export default function RegisterPage() {

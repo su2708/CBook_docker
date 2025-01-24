@@ -2,14 +2,14 @@
 
 import { useState, useEffect, useRef } from "react"
 import { useParams, useRouter } from "next/navigation"
-import { Message } from "@/components/message"
-import { MessageInput } from "@/components/message-input"
-import { useApi } from "@/hooks/useApi"
-import { useAuth } from "@/contexts/AuthContext"
-import { BookSearchResult } from "@/components/book-search-result"
-import { TypingEffect } from "@/components/typing-effect"
-import { ModeToggle } from "@/components/theme-toggle"
-import { LoadingMessage } from "@/components/loading-message"
+import { Message } from "../../../../components/message"
+import { MessageInput } from "../../../../components/message-input"
+import { useApi } from "../../../../hooks/useApi"
+import { useAuth } from "../../../../contexts/AuthContext"
+import { BookSearchResult } from "../../../../components/book-search-result"
+import { TypingEffect } from "../../../../components/typing-effect"
+import { ModeToggle } from "../../../../components/theme-toggle"
+import { LoadingMessage } from "../../../../components/loading-message"
 import { HelpCircle } from "lucide-react"
 import {
   AlertDialog,
@@ -19,7 +19,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+} from "../../../../components/ui/alert-dialog"
 
 interface ChatMessage {
   id: number
@@ -113,7 +113,7 @@ export default function ChatPage() {
 
     const loadingMessageId = Date.now() + 1
     setMessages((prev) => [
-      ...prev,
+      ../../...prev,
       newUserMessage,
       {
         id: loadingMessageId,
