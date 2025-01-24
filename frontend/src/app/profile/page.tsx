@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
-import { Settings, LogOut, User, Trash2, MoreHorizontal } from "lucide-react"
+import { Settings, LogOut, User, Trash2, MoreHorizontal, PencilIcon } from "lucide-react"
 import { Button } from "../../components/ui/button"
 import { Card } from "../../components/ui/card"
 import { Input } from "../../components/ui/input"
@@ -48,6 +48,9 @@ interface OngoingExam {
 interface UserProfile {
   id: number
   username: string
+  email: string
+  phone: string | null
+  profile_image: string | null
 }
 
 interface ChatRoom {
@@ -83,6 +86,56 @@ interface Achievement {
   created_at: string
 }
 
+interface EditDialogProps {
+  isOpen: boolean
+  onClose: () => void
+  fieldName: "username" | "email"
+  currentValue: string
+  onSubmit: (value: string) => Promise<void>
+  error?: string
+}
+
+function EditDialog({ isOpen, onClose, fieldName, currentValue, onSubmit, error }: EditDialogProps) {
+  const [value, setValue] = useState(currentValue)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    try {
+      await onSubmit(value)
+      // Dialog closure is now handled in the parent component
+    } catch (error) {
+      // Just finish submitting state, don't close dialog
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <AlertDialog open={isOpen} onOpenChange={onClose}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>{fieldName === "username" ? "사용자 이름 수정" : "이메일 수정"}</AlertDialogTitle>
+        </AlertDialogHeader>
+        <div className="space-y-4 py-4">
+          <Input
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder={fieldName === "username" ? "사용자 이름" : "이메일"}
+          />
+          {error && <p className="text-sm text-destructive">{error}</p>}
+        </div>
+        <AlertDialogFooter>
+          <AlertDialogCancel onClick={onClose}>취소</AlertDialogCancel>
+          <AlertDialogAction onClick={handleSubmit} disabled={isSubmitting || !value.trim() || value === currentValue}>
+            저장
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  )
+}
+
 export default function ProfilePage() {
   const { checkAuth, logout } = useAuth()
   const router = useRouter()
@@ -101,6 +154,11 @@ export default function ProfilePage() {
   const [deleteMessage, setDeleteMessage] = useState("")
   const [achievements, setAchievements] = useState<Achievement[]>([])
   const [isLoadingAchievements, setIsLoadingAchievements] = useState(true)
+  const [showProfileDialog, setShowProfileDialog] = useState(false)
+  const [isLoadingProfileDetails, setIsLoadingProfileDetails] = useState(false)
+  const [showEditDialog, setShowEditDialog] = useState(false)
+  const [editingField, setEditingField] = useState<"username" | "email" | null>(null)
+  const [editError, setEditError] = useState<string>("")
 
   useEffect(() => {
     if (!checkAuth()) {
@@ -208,6 +266,60 @@ export default function ProfilePage() {
     }
   }
 
+  const handleViewProfile = async () => {
+    setIsLoadingProfileDetails(true)
+    setShowProfileDialog(true)
+
+    try {
+      const profileResponse = await apiCall<UserProfile>("/api/v1/accounts/profile/", "GET")
+
+      if (profileResponse.error) {
+        console.error("Failed to fetch profile details:", profileResponse.error)
+      } else if (profileResponse.data) {
+        setProfile(profileResponse.data)
+      }
+    } catch (error) {
+      console.error("Error fetching profile details:", error)
+    } finally {
+      setIsLoadingProfileDetails(false)
+    }
+  }
+
+  const handleEdit = (field: "username" | "email") => {
+    setEditingField(field)
+    setEditError("")
+    setShowEditDialog(true)
+  }
+
+  const handleUpdateProfile = async (value: string) => {
+    if (!profile) return
+
+    try {
+      const response = await apiCall<any>("/api/v1/accounts/profile/", "PATCH", {
+        [editingField!]: value,
+      })
+
+      if (response.error) {
+        if (response.status === 400 && response.data) {
+          setEditError(response.data[editingField!][0])
+        } else {
+          setEditError("프로필 업데이트에 실패했습니다.")
+        }
+        // Keep the dialog open on error
+        return
+      }
+
+      // Update local profile state and close dialog only on success
+      setProfile((prev) => (prev ? { ...prev, [editingField!]: value } : null))
+      setShowEditDialog(false)
+      setEditError("")
+    } catch (error) {
+      console.error("Error updating profile:", error)
+      setEditError("프로필 업데이트 중 오류가 발생했습니다.")
+      // Keep the dialog open on error
+    }
+  }
+
   if (isLoading) {
     return (
       <div className="container max-w-2xl mx-auto p-4 space-y-8">
@@ -277,7 +389,7 @@ export default function ProfilePage() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>내 계정</DropdownMenuLabel>
-              <DropdownMenuItem>
+              <DropdownMenuItem onSelect={handleViewProfile}>
                 <User className="mr-2 h-4 w-4" />
                 <span>프로필</span>
               </DropdownMenuItem>
@@ -469,6 +581,68 @@ export default function ProfilePage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      {/* Profile Details Dialog */}
+      <AlertDialog open={showProfileDialog} onOpenChange={setShowProfileDialog}>
+        <AlertDialogContent className="max-w-md">
+          <div className="flex flex-col items-center space-y-6">
+            {/* Profile Avatar */}
+            <div className="w-32 h-32 rounded-full bg-purple-200 flex items-center justify-center">
+              <span className="text-4xl">{profile?.username?.[0]?.toUpperCase()}</span>
+            </div>
+
+            {/* Profile Information */}
+            <div className="w-full space-y-4">
+              {/* Username */}
+              <div className="relative w-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xl">{profile?.username}</span>
+                  <button
+                    onClick={() => handleEdit("username")}
+                    className="p-1 hover:bg-muted rounded-full transition-colors"
+                  >
+                    <PencilIcon className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="relative w-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-xl">{profile?.email}</span>
+                  <button
+                    onClick={() => handleEdit("email")}
+                    className="p-1 hover:bg-muted rounded-full transition-colors"
+                  >
+                    <PencilIcon className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Close Button */}
+            <Button className="w-full py-6 text-lg" onClick={() => setShowProfileDialog(false)}>
+              닫기
+            </Button>
+          </div>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Edit Dialog */}
+      {showEditDialog && editingField && (
+        <EditDialog
+          isOpen={showEditDialog}
+          onClose={() => {
+            setShowEditDialog(false)
+            setEditingField(null)
+            setEditError("")
+          }}
+          fieldName={editingField}
+          currentValue={profile?.[editingField] || ""}
+          onSubmit={handleUpdateProfile}
+          error={editError}
+        />
+      )}
     </div>
   )
 }
