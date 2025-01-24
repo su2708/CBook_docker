@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Settings, LogOut, User, Trash2, MoreHorizontal } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { useAuth } from "@/contexts/AuthContext"
-import { useApi } from "@/hooks/useApi"
+import { Button } from "../../components/ui/button"
+import { Card } from "../../components/ui/card"
+import { Input } from "../../components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
+import { useAuth } from "../../contexts/AuthContext"
+import { useApi } from "../../hooks/useApi"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +16,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "../../components/ui/dropdown-menu"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -26,12 +26,12 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+} from "../../components/ui/alert-dialog"
+import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/popover"
 
-import { formatDate } from "@/utils/date"
-import { ModeToggle } from "@/components/theme-toggle"
-import { Skeleton } from "@/components/ui/skeleton"
+import { formatDate } from "../../utils/date"
+import { ModeToggle } from "../../components/theme-toggle"
+import { Skeleton } from "../../components/ui/skeleton"
 
 interface OngoingExam {
   id: number
