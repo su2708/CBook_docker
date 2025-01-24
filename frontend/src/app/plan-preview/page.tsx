@@ -10,7 +10,7 @@ import { StudyPlanItem } from "../../components/study-plan-item"
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from "@dnd-kit/core"
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import type { DragEndEvent } from "@dnd-kit/core"
-import { calculateDaysRemaining, formatDate } from "@/utils/date"
+import { calculateDaysRemaining, formatDate } from "../../utils/date"
 
 interface StudyPlan {
   book_title: string

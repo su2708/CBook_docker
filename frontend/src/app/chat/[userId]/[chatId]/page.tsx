@@ -113,7 +113,7 @@ export default function ChatPage() {
 
     const loadingMessageId = Date.now() + 1
     setMessages((prev) => [
-      ../../...prev,
+      ...prev,
       newUserMessage,
       {
         id: loadingMessageId,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Loader2 } from 'lucide-react'
 
 export function LoadingMessage() {
