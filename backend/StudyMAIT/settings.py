@@ -130,7 +130,9 @@ DATABASES = {
         'HOST': 'mariadb',  # docker-compose에서 정의한 MariaDB 서비스 이름
         'PORT': '3306',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+            'autocommit': True,
         }
     }
 }

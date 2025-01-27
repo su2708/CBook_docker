@@ -28,6 +28,7 @@ services: # 각 서비스 정의
       - TZ=Asia/Seoul
     volumes:
       - mariadb_data:/var/lib/mysql
+      - ./mariadb/conf.d:/etc/mysql/conf.d
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
@@ -67,6 +68,22 @@ services: # 각 서비스 정의
       - TZ=Asia/Seoul    
     env_file:
       - .env
+  
+  scheduler:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: django_scheduler
+    command: python manage.py start_scheduler
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE=StudyMAIT.settings
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=True
 
   frontend: # Next.js Frontend
     build:
