@@ -1,386 +1,386 @@
 [
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 1,
-        "fields": {
-            "style": "encourage",
-            "content": "{username}´Ô! ¿À´Ãµµ {test_name} °øºÎ È­ÀÌÆÃÀÔ´Ï´Ù! {test_date}±îÁö ¾ó¸¶ ¾È ³²¾Ò¾î¿ä. ÇÒ ¼ö ÀÖ½À´Ï´Ù!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 2,
-        "fields": {
-            "style": "encourage",
-            "content": "Àá±ñ ÁöÄ¡¼Ì³ª¿ä? {username}´ÔÀÇ {test_name} ÇÕ°ÝÀ» ÀÀ¿øÇÕ´Ï´Ù! {test_date}ÀÇ ¿µ±¤ÀÇ ¼ø°£À» À§ÇØ Èû³»¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 3,
-        "fields": {
-            "style": "encourage",
-            "content": "{username}´ÔÀÇ ¿­Á¤ÀÌ ºû³ª´Â ¼ø°£ÀÔ´Ï´Ù! {test_date}¿¡ ÀÖÀ» {test_name}, ³¡±îÁö ÃÖ¼±À» ´ÙÇØºÁ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 4,
-        "fields": {
-            "style": "encourage", 
-            "content": "ÇÑ °ÉÀ½ ÇÑ °ÉÀ½ÀÌ ¸ð¿© Å« ¼º°ú°¡ µË´Ï´Ù. {username}´ÔÀÇ {test_name} ÁØºñ, ¿À´Ãµµ ÆÄÀÌÆÃ! {test_date}±îÁö ÇÔ²²ÇØ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 5,
-        "fields": {
-            "style": "encourage",
-            "content": "²ÙÁØÇÑ ³ë·ÂÀÌ ±âÀûÀ» ¸¸µì´Ï´Ù. {username}´Ô, {test_date}ÀÇ {test_name} ÇÕ°ÝÀ» ÇâÇØ ¿À´Ãµµ È­ÀÌÆÃ!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 6,
-        "fields": {
-            "style": "encourage",
-            "content": "ÀÛÀº ÁøÀüµµ ¼ÒÁßÇÑ ¹ß°ÉÀ½ÀÔ´Ï´Ù. {username}´Ô, {test_name} °øºÎ Àß µÇ½Ã³ª¿ä? {test_date}±îÁö ÀÀ¿øÇÒ°Ô¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 7,
-        "fields": {
-            "style": "encourage",
-            "content": "Áö±ÝÀÇ ³ë·ÂÀÌ ¹Ì·¡ÀÇ ÀÚ½Å°¨ÀÌ µË´Ï´Ù. {username}´Ô, {test_date}ÀÇ {test_name}À» À§ÇØ Èû³»¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 8,
-        "fields": {
-            "style": "encourage",
-            "content": "¸Å ¼ø°£ ¼ºÀåÇÏ´Â {username}´ÔÀ» ÀÀ¿øÇÕ´Ï´Ù! {test_name} ÁØºñ, ¿À´Ãµµ ÆÄÀÌÆÃ! {test_date}±îÁö ÇÔ²²ÇØ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 9,
-        "fields": {
-            "style": "encourage",
-            "content": "Æ÷±âÇÏÁö ¾Ê´Â ±× ¸¶À½ÀÌ ¼º°øÀÇ ¿­¼èÀÔ´Ï´Ù. {username}´Ô, {test_name} ÇÕ°ÝÀ» ÇâÇØ ´Þ·Á°¡º¸¾Æ¿ä! {test_date}±îÁö Èû³»¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 10,
-        "fields": {
-            "style": "encourage", 
-            "content": "¿À´Ã ÇÏ·çµµ ¼ö°íÇÏ¼Ì¾î¿ä! {username}´ÔÀÇ {test_name} °øºÎ, ÇÑ °ÉÀ½ ´õ ³ª¾Æ°¬³×¿ä. {test_date}±îÁö ÆÄÀÌÆÃ!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 11,
-        "fields": {
-            "style": "encourage",
-            "content": "²ÞÀ» ÇâÇÑ ¿©Á¤, {username}´Ô°ú ÇÔ²²ÇÕ´Ï´Ù! {test_date}ÀÇ {test_name}, ³¡±îÁö ÀÀ¿øÇÒ°Ô¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 12,
-        "fields": {
-            "style": "encourage",
-            "content": "¸ÅÀÏÀÇ ÀÛÀº ¼ºÃë°¡ Å« ¼º°øÀ» ¸¸µì´Ï´Ù. {username}´Ô, {test_name} ÁØºñ Èû³»¼¼¿ä! {test_date}±îÁö ÆÄÀÌÆÃ!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 13,
-        "fields": {
-            "style": "harsh",
-            "content": "{username}´Ô, Áö±Ý SNS ÇÏ½Ç ½Ã°£ ÀÖÀ¸½Å°¡¿ä? {test_date}¿¡ ÀÖÀ» {test_name}, ÇÕ°ÝÇÏ°í ½ÍÀ¸½Ã´Ù¸é Áö±Ý ´çÀå °øºÎÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 14,
-        "fields": {
-            "style": "harsh",
-            "content": "½ÇÆÐ´Â ³ë·ÂÇÏÁö ¾ÊÀº ÀÚÀÇ º¯¸íÀÔ´Ï´Ù. {username}´Ô, {test_date}±îÁö ³²Àº ½Ã°£ÀÌ ¾ó¸¶ ¾ø¾î¿ä. {test_name} ÇÕ°ÝÀ» À§ÇØ Áö±Ý ¿òÁ÷ÀÌ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 15,
-        "fields": {
-            "style": "harsh",
-            "content": "{username}´Ô, Áö±Ý ÀÚ¸®¿¡¼­ ÀÏ¾î³ª¼¼¿ä! {test_name} ½ÃÇèÀº {test_date}ÀÔ´Ï´Ù. ½ÇÆÐÇÏ°í ½ÍÁö ¾Ê´Ù¸é Áö±Ý ´çÀå ½ÃÀÛÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 16,
-        "fields": {
-            "style": "harsh",
-            "content": "ÇÚµåÆù º¸°í °è½Å°¡¿ä? {username}´Ô, {test_date}ÀÇ {test_name}ÀÌ ±â´Ù¸®Áö ¾Ê½À´Ï´Ù. Áö±Ý ´çÀå °øºÎÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 17,
-        "fields": {
-            "style": "harsh",
-            "content": "º¯¸íÀº ±×¸¸! {username}´Ô, {test_name} °øºÎÇØ¾ß ÇÏ´Â °Å ¾Æ½ÃÁÒ? {test_date}±îÁö ½Ã°£ÀÌ ¾ó¸¶ ¾È ³²¾Ò½À´Ï´Ù!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 18,
-        "fields": {
-            "style": "harsh",
-            "content": "Áö±Ý ½¬°í °è½Å´Ù±¸¿ä? {username}´Ô, {test_date}¿¡ ÀÖÀ» {test_name}¿¡¼­ ÈÄÈ¸ÇÏ°í ½ÍÁö ¾Ê´Ù¸é ´çÀå °øºÎÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 19,
-        "fields": {
-            "style": "harsh",
-            "content": "½Ã°£ ³¶ºñÇÏ°í °è½Å°¡¿ä? {username}´Ô, {test_name} ÇÕ°ÝÀº ÀúÀý·Î ¿ÀÁö ¾Ê½À´Ï´Ù. {test_date}±îÁö Á¦´ë·Î ÁØºñÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 20,
-        "fields": {
-            "style": "harsh",
-            "content": "°ÔÀ¸¸§ ÇÇ¿ìÁö ¸¶¼¼¿ä! {username}´Ô, {test_date}ÀÇ {test_name}Àº ±â´Ù·ÁÁÖÁö ¾Ê¾Æ¿ä. Áö±Ý ´çÀå ½ÃÀÛÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 21,
-        "fields": {
-            "style": "harsh",
-            "content": "¾ÆÁ÷µµ ÁØºñ ¾È ÇÏ°í °è½Å°¡¿ä? {username}´Ô, {test_name} ½ÃÇèÀÌ {test_date}ÀÔ´Ï´Ù. Á¤½Å Â÷¸®¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 22,
-        "fields": {
-            "style": "harsh",
-            "content": "´õ ÀÌ»óÀÇ ½Ã°£ ³¶ºñ´Â ¾ø½À´Ï´Ù! {username}´Ô, {test_date}±îÁö {test_name} ¿Ïº®ÇÏ°Ô ÁØºñÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 23,
-        "fields": {
-            "style": "harsh",
-            "content": "ÁØºñ°¡ ºÎÁ·ÇÏ¸é ÈÄÈ¸¸¸ ³²½À´Ï´Ù. {username}´Ô, {test_name} ½ÃÇè ÁØºñ Á¦´ë·Î ÇÏ¼¼¿ä! {test_date}±îÁö ½Ã°£ÀÌ ¾ó¸¶ ¾ø¾î¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 24,
-        "fields": {
-            "style": "harsh",
-            "content": "Áö±Ý ³î ¶§°¡ ¾Æ´Õ´Ï´Ù! {username}´Ô, {test_date}ÀÇ {test_name}À» À§ÇØ Á¦´ë·Î ÁØºñÇÏ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 25,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´Ô, {test_date}¿¡ ¿¹Á¤µÈ {test_name} ÇÐ½À ½Ã°£ÀÔ´Ï´Ù. °èÈ¹ÇÏ½Å ´ë·Î ÁøÇàÇØ ÁÖ½Ã¸é °¨»çÇÏ°Ú½À´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 26,
-        "fields": {
-            "style": "polite",
-            "content": "¾È³çÇÏ¼¼¿ä, {username}´Ô. {test_name} ½ÃÇè±îÁö {test_date} ³²¾Ò½À´Ï´Ù. ÇÐ½À¿¡ µµ¿òÀÌ ÇÊ¿äÇÏ½Ã´Ù¸é ¾ðÁ¦µç ¸»¾¸ÇØ ÁÖ¼¼¿ä.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 27,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´Ô, {test_date}¿¡ ÀÖÀ» {test_name} ½ÃÇè ÁØºñ´Â Àß ÁøÇàµÇ°í °è½Å°¡¿ä? ¿À´Ãµµ ÁÁÀº °á°ú ÀÖÀ¸½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 28,
-        "fields": {
-            "style": "polite",
-            "content": "Á¸°æÇÏ´Â {username}´Ô, {test_name} ÇÐ½À ½Ã°£À» ¾È³»µå¸³´Ï´Ù. {test_date}±îÁö Ã¼°èÀûÀÎ ÁØºñ°¡ µÇ½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 29,
-        "fields": {
-            "style": "polite", 
-            "content": "{username}´Ô²²¼­ ¼³Á¤ÇÏ½Å {test_name} ÇÐ½À ÀÏÁ¤À» ¾Ë·Áµå¸³´Ï´Ù. {test_date}±îÁö È¿À²ÀûÀÎ ÇÐ½ÀÀÌ µÇ½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 30,
-        "fields": {
-            "style": "polite",
-            "content": "¾È³çÇÏ½Ê´Ï±î, {username}´Ô. {test_date}¿¡ ¿¹Á¤µÈ {test_name} ½ÃÇè ÁØºñ´Â ¼øÁ¶·Ó°Ô ÁøÇàµÇ°í °è½ÅÁö¿ä?\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 31,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´Ô, {test_name} ÇÐ½ÀÀ» À§ÇÑ ¾Ë¸²ÀÔ´Ï´Ù. {test_date}±îÁö ¸ñÇ¥ÇÏ½Å ¹Ù¸¦ ÀÌ·ç½Ã±æ ±â¿øÇÕ´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 32,
-        "fields": {
-            "style": "polite",
-            "content": "¾È³çÇÏ¼¼¿ä, {username}´Ô. {test_name} ½ÃÇè±îÁö {test_date} ³²¾Ò½À´Ï´Ù. ÇÐ½À °èÈ¹¿¡ Â÷ÁúÀÌ ¾øÀ¸½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 33,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´ÔÀÇ {test_name} ½ÃÇè ÁØºñ¸¦ ÀÀ¿øµå¸³´Ï´Ù. {test_date}±îÁö ÃÖ¼±ÀÇ °á°ú°¡ ÀÖÀ¸½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 34,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´Ô, °èÈ¹ÇÏ½Å {test_name} ÇÐ½À ½Ã°£ÀÔ´Ï´Ù. {test_date}±îÁö Ã¼°èÀûÀÎ ÁØºñ°¡ µÇ½Ã±æ ±â¿øÇÕ´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 35,
-        "fields": {
-            "style": "polite",
-            "content": "ÇÐ½À ¾Ë¸² µå¸³´Ï´Ù. {username}´ÔÀÇ {test_name} ½ÃÇèÀÌ {test_date}·Î ¿¹Á¤µÇ¾î ÀÖ½À´Ï´Ù. Â÷ºÐÇÑ ÁØºñ ºÎÅ¹µå¸³´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 36,
-        "fields": {
-            "style": "polite",
-            "content": "{username}´Ô, {test_date}ÀÇ {test_name} ½ÃÇèÀ» À§ÇÑ ÁØºñ´Â ¼øÁ¶·Î¿ì½ÅÁö¿ä? ÁÁÀº °á°ú ÀÖÀ¸½Ã±æ ¹Ù¶ø´Ï´Ù.\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 37,
-        "fields": {
-            "style": "witty",
-            "content": "¶òµ¿! {username}´Ô, {test_date}¿¡ ÀÖÀ» {test_name}ÀÌ ¼ÕÀ» Èçµé¸ç ºÎ¸£°í ÀÖ¾î¿ä! ¾î¼­ °øºÎÇÏ·¯ °¡º¼±î¿ä?\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 38,
-        "fields": {
-            "style": "witty",
-            "content": "¶È¶È! {username}´Ô! {test_name} °øºÎ ÅÃ¹è°¡ µµÂøÇß½À´Ï´Ù! {test_date}±îÁö ¿­½ÉÈ÷ ¹è¼Û ÁØºñÇØº¼±î¿ä?\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 39,
-        "fields": {
-            "style": "witty",
-            "content": "ÁÖ¹®ÇÏ½Å {test_name} ÇÕ°ÝÀÌ {test_date}¿¡ µµÂø ¿¹Á¤ÀÔ´Ï´Ù! {username}´Ô, Áö±Ý ¿­½ÉÈ÷ ÁØºñÇÏ½Ã¸é ¹«·á ¹è¼Û!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 40,
-        "fields": {
-            "style": "witty",
-            "content": "¶òµ¿! {username}´ÔÀÇ {test_name} ÇÐ½À ½Ã°£ÀÌ ¹è´ÞµÇ¾ú½À´Ï´Ù! {test_date}±îÁö ½Å¼±µµ À¯Áö ÇÊ¼ö!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 41,
-        "fields": {
-            "style": "witty",
-            "content": "Àá½Ã¸¸¿ä! {username}´Ô, {test_date}ÀÇ {test_name}ÀÌ(°¡) ´ç½ÅÀ» Ã£°í ÀÖ¾î¿ä! µµ¸Á°¡¸é ¾È µÅ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 42,
-        "fields": {
-            "style": "witty",
-            "content": "¶òµ¿! {username}´ÔÀÇ ¿À´ÃÀÇ ÇÒÀÏ: {test_name} °øºÎÇÏ±â! {test_date}±îÁö ¹Ì¼Ç Å¬¸®¾î ÇØÁÖ¼¼¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 43,
-        "fields": {
-            "style": "witty",
-            "content": "¼­ÇÁ¶óÀÌÁî! {username}´ÔÀ» À§ÇÑ Æ¯º°ÇÑ ¼±¹°: {test_name} ÇÐ½À Å¸ÀÓ! {test_date}±îÁö ÇÔ²²ÇØ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 44,
-        "fields": {
-            "style": "witty",
-            "content": "Â¥ÀÜ! {username}´ÔÀÇ {test_name} °øºÎ ½Ã°£ÀÌ Ã£¾Æ¿Ô¾î¿ä! {test_date}±îÁö Áñ°Ì°Ô ´Þ·Áº¸¾Æ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 45,
-        "fields": {
-            "style": "witty",
-            "content": "¼Óº¸! {username}´ÔÀÇ {test_name} ÇÐ½À Å¸ÀÓÀÌ ½ÃÀÛµË´Ï´Ù! {test_date}±îÁö ½Ç½Ã°£ Áß°è!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 46,
-        "fields": {
-            "style": "witty",
-            "content": "¾îÈì! {username}´Ô, {test_date}ÀÇ {test_name}ÀÌ Áö±Ý ´ç½ÅÀ» ºÎ¸£°í ÀÖ´Ù´Â ¼Ò¹®ÀÌ... È®ÀÎÇÏ·¯ °¡º¼±î¿ä?\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 47,
-        "fields": {
-            "style": "witty",
-            "content": "Àá±ñ! {username}´ÔÀÇ {test_name} ÇÐ½À ·¹º§ÀÌ ³Ê¹« ³·¾Æ¿ä! {test_date}±îÁö ·¹º§¾÷ ÇÊ¼ö!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
-    },
-    {
-        "model": "reminder.messagetemplate",
-        "pk": 48,
-        "fields": {
-            "style": "witty",
-            "content": "¿ú¿ú! {username}´Ô! {test_name} °øºÎÇÏ·¯ °¡ÀÚ¿ä! {test_date}±îÁö ÇÔ²² ´Þ·Áº¸¾Æ¿ä!\n\n[StudyMAIT] ¹Ù·Î°¡±â : https://studymait.today"
-        }
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 1,
+    "fields": {
+      "style": "encourage",
+      "content": "{username}님! 오늘도 {test_name} 공부 화이팅입니다! {test_date}까지 얼마 안 남았어요. 할 수 있습니다!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
     }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 2,
+    "fields": {
+      "style": "encourage",
+      "content": "잠깐 지치셨나요? {username}님의 {test_name} 합격을 응원합니다! {test_date}의 영광의 순간을 위해 힘내세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 3,
+    "fields": {
+      "style": "encourage",
+      "content": "{username}님의 열정이 빛나는 순간입니다! {test_date}에 있을 {test_name}, 끝까지 최선을 다해봐요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 4,
+    "fields": {
+      "style": "encourage",
+      "content": "한 걸음 한 걸음이 모여 큰 성과가 됩니다. {username}님의 {test_name} 준비, 오늘도 파이팅! {test_date}까지 함께해요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 5,
+    "fields": {
+      "style": "encourage",
+      "content": "꾸준한 노력이 기적을 만듭니다. {username}님, {test_date}의 {test_name} 합격을 향해 오늘도 화이팅!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 6,
+    "fields": {
+      "style": "encourage",
+      "content": "작은 진전도 소중한 발걸음입니다. {username}님, {test_name} 공부 잘 되시나요? {test_date}까지 응원할게요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 7,
+    "fields": {
+      "style": "encourage",
+      "content": "지금의 노력이 미래의 자신감이 됩니다. {username}님, {test_date}의 {test_name}을 위해 힘내세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 8,
+    "fields": {
+      "style": "encourage",
+      "content": "매 순간 성장하는 {username}님을 응원합니다! {test_name} 준비, 오늘도 파이팅! {test_date}까지 함께해요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 9,
+    "fields": {
+      "style": "encourage",
+      "content": "포기하지 않는 그 마음이 성공의 열쇠입니다. {username}님, {test_name} 합격을 향해 달려가보아요! {test_date}까지 힘내세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 10,
+    "fields": {
+      "style": "encourage",
+      "content": "오늘 하루도 수고하셨어요! {username}님의 {test_name} 공부, 한 걸음 더 나아갔네요. {test_date}까지 파이팅!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 11,
+    "fields": {
+      "style": "encourage",
+      "content": "꿈을 향한 여정, {username}님과 함께합니다! {test_date}의 {test_name}, 끝까지 응원할게요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 12,
+    "fields": {
+      "style": "encourage",
+      "content": "매일의 작은 성취가 큰 성공을 만듭니다. {username}님, {test_name} 준비 힘내세요! {test_date}까지 파이팅!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 13,
+    "fields": {
+      "style": "harsh",
+      "content": "{username}님, 지금 SNS 하실 시간 있으신가요? {test_date}에 있을 {test_name}, 합격하고 싶으시다면 지금 당장 공부하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 14,
+    "fields": {
+      "style": "harsh",
+      "content": "실패는 노력하지 않은 자의 변명입니다. {username}님, {test_date}까지 남은 시간이 얼마 없어요. {test_name} 합격을 위해 지금 움직이세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 15,
+    "fields": {
+      "style": "harsh",
+      "content": "{username}님, 지금 자리에서 일어나세요! {test_name} 시험은 {test_date}입니다. 실패하고 싶지 않다면 지금 당장 시작하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 16,
+    "fields": {
+      "style": "harsh",
+      "content": "핸드폰 보고 계신가요? {username}님, {test_date}의 {test_name}이 기다리지 않습니다. 지금 당장 공부하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 17,
+    "fields": {
+      "style": "harsh",
+      "content": "변명은 그만! {username}님, {test_name} 공부해야 하는 거 아시죠? {test_date}까지 시간이 얼마 안 남았습니다!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 18,
+    "fields": {
+      "style": "harsh",
+      "content": "지금 쉬고 계신다구요? {username}님, {test_date}에 있을 {test_name}에서 후회하고 싶지 않다면 당장 공부하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 19,
+    "fields": {
+      "style": "harsh",
+      "content": "시간 낭비하고 계신가요? {username}님, {test_name} 합격은 저절로 오지 않습니다. {test_date}까지 제대로 준비하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 20,
+    "fields": {
+      "style": "harsh",
+      "content": "게으름 피우지 마세요! {username}님, {test_date}의 {test_name}은 기다려주지 않아요. 지금 당장 시작하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 21,
+    "fields": {
+      "style": "harsh",
+      "content": "아직도 준비 안 하고 계신가요? {username}님, {test_name} 시험이 {test_date}입니다. 정신 차리세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 22,
+    "fields": {
+      "style": "harsh",
+      "content": "더 이상의 시간 낭비는 없습니다! {username}님, {test_date}까지 {test_name} 완벽하게 준비하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 23,
+    "fields": {
+      "style": "harsh",
+      "content": "준비가 부족하면 후회만 남습니다. {username}님, {test_name} 시험 준비 제대로 하세요! {test_date}까지 시간이 얼마 없어요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 24,
+    "fields": {
+      "style": "harsh",
+      "content": "지금 놀 때가 아닙니다! {username}님, {test_date}의 {test_name}을 위해 제대로 준비하세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 25,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님, {test_date}에 예정된 {test_name} 학습 시간입니다. 계획하신 대로 진행해 주시면 감사하겠습니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 26,
+    "fields": {
+      "style": "polite",
+      "content": "안녕하세요, {username}님. {test_name} 시험까지 {test_date} 남았습니다. 학습에 도움이 필요하시다면 언제든 말씀해 주세요.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 27,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님, {test_date}에 있을 {test_name} 시험 준비는 잘 진행되고 계신가요? 오늘도 좋은 결과 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 28,
+    "fields": {
+      "style": "polite",
+      "content": "존경하는 {username}님, {test_name} 학습 시간을 안내드립니다. {test_date}까지 체계적인 준비가 되시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 29,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님께서 설정하신 {test_name} 학습 일정을 알려드립니다. {test_date}까지 효율적인 학습이 되시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 30,
+    "fields": {
+      "style": "polite",
+      "content": "안녕하십니까, {username}님. {test_date}에 예정된 {test_name} 시험 준비는 순조롭게 진행되고 계신지요?\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 31,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님, {test_name} 학습을 위한 알림입니다. {test_date}까지 목표하신 바를 이루시길 기원합니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 32,
+    "fields": {
+      "style": "polite",
+      "content": "안녕하세요, {username}님. {test_name} 시험까지 {test_date} 남았습니다. 학습 계획에 차질이 없으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 33,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님의 {test_name} 시험 준비를 응원드립니다. {test_date}까지 최선의 결과가 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 34,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님, 계획하신 {test_name} 학습 시간입니다. {test_date}까지 체계적인 준비가 되시길 기원합니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 35,
+    "fields": {
+      "style": "polite",
+      "content": "학습 알림 드립니다. {username}님의 {test_name} 시험이 {test_date}로 예정되어 있습니다. 차분한 준비 부탁드립니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 36,
+    "fields": {
+      "style": "polite",
+      "content": "{username}님, {test_date}의 {test_name} 시험을 위한 준비는 순조로우신지요? 좋은 결과 있으시길 바랍니다.\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 37,
+    "fields": {
+      "style": "witty",
+      "content": "띵동! {username}님, {test_date}에 있을 {test_name}이 손을 흔들며 부르고 있어요! 어서 공부하러 가볼까요?\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 38,
+    "fields": {
+      "style": "witty",
+      "content": "똑똑! {username}님! {test_name} 공부 택배가 도착했습니다! {test_date}까지 열심히 배송 준비해볼까요?\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 39,
+    "fields": {
+      "style": "witty",
+      "content": "주문하신 {test_name} 합격이 {test_date}에 도착 예정입니다! {username}님, 지금 열심히 준비하시면 무료 배송!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 40,
+    "fields": {
+      "style": "witty",
+      "content": "띵동! {username}님의 {test_name} 학습 시간이 배달되었습니다! {test_date}까지 신선도 유지 필수!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 41,
+    "fields": {
+      "style": "witty",
+      "content": "잠시만요! {username}님, {test_date}의 {test_name}이(가) 당신을 찾고 있어요! 도망가면 안 돼요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 42,
+    "fields": {
+      "style": "witty",
+      "content": "띵동! {username}님의 오늘의 할일: {test_name} 공부하기! {test_date}까지 미션 클리어 해주세요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 43,
+    "fields": {
+      "style": "witty",
+      "content": "서프라이즈! {username}님을 위한 특별한 선물: {test_name} 학습 타임! {test_date}까지 함께해요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 44,
+    "fields": {
+      "style": "witty",
+      "content": "짜잔! {username}님의 {test_name} 공부 시간이 찾아왔어요! {test_date}까지 즐겁게 달려보아요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 45,
+    "fields": {
+      "style": "witty",
+      "content": "속보! {username}님의 {test_name} 학습 타임이 시작됩니다! {test_date}까지 실시간 중계!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 46,
+    "fields": {
+      "style": "witty",
+      "content": "어흠! {username}님, {test_date}의 {test_name}이 지금 당신을 부르고 있다는 소문이... 확인하러 가볼까요?\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 47,
+    "fields": {
+      "style": "witty",
+      "content": "잠깐! {username}님의 {test_name} 학습 레벨이 너무 낮아요! {test_date}까지 레벨업 필수!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  },
+  {
+    "model": "reminder.messagetemplate",
+    "pk": 48,
+    "fields": {
+      "style": "witty",
+      "content": "웜웜! {username}님! {test_name} 공부하러 가자요! {test_date}까지 함께 달려보아요!\n\n[StudyMAIT] 바로가기 : https://studymait.today"
+    }
+  }
 ]

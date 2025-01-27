@@ -83,7 +83,11 @@ services: # 각 서비스 정의
       - DJANGO_SETTINGS_MODULE=StudyMAIT.settings
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
       - DEBUG=True
+      - LANG=ko_KR.UTF-8
+      - LC_ALL=ko_KR.UTF-8
+      - TZ=Asia/Seoul
 
   frontend: # Next.js Frontend
     build:

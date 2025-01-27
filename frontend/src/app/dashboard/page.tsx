@@ -630,7 +630,7 @@ export default function Page() {
             onClick={toggleNotificationSettings}
           >
             <Bell className="w-5 h-5" />
-            <span>학습 알림 (아직은 작동하지 않습니다)</span>
+            <span>학습 알림</span>
             <ChevronDown
               className={`w-5 h-5 transition-transform ${
                 showNotificationSettings ? "transform rotate-180" : ""
