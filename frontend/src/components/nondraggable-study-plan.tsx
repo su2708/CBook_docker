@@ -1,17 +1,14 @@
-'use client'
+"use client";
 
-import { useSortable } from '@dnd-kit/sortable'
-import { CSS } from '@dnd-kit/utilities'
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface DraggableStudyPlanProps {
-  id: string
-  week: string
+  id: string;
+  week: string;
 }
 
-export function NonDraggableStudyPlan({ 
-  id, 
-  week,
-}: DraggableStudyPlanProps) {
+export function NonDraggableStudyPlan({ id, week }: DraggableStudyPlanProps) {
   const {
     attributes,
     listeners,
@@ -19,15 +16,15 @@ export function NonDraggableStudyPlan({
     transform,
     transition,
     isDragging,
-  } = useSortable({ 
+  } = useSortable({
     id,
-    disabled: true
-  })
+    disabled: true,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-  }
+  };
 
   return (
     <div
@@ -35,12 +32,14 @@ export function NonDraggableStudyPlan({
       style={style}
       {...attributes}
       {...listeners}
-      className={`select-none ${isDragging ? 'z-10' : ''} cursor-default p-4 mb-4`}
+      className={`select-none ${
+        isDragging ? "z-10" : ""
+      } cursor-default p-2 mb-2`}
     >
       <div className="flex items-center">
         <h3 className="text-lg font-semibold mr-2">{week}</h3>
         <div className="flex-grow h-px bg-gray-300"></div>
       </div>
     </div>
-  )
+  );
 }

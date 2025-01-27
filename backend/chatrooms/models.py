@@ -3,7 +3,6 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.conf import settings
 
-# Create your models here.
 class ChatRoom(models.Model):
     chat_id = models.IntegerField(null=True, blank=True, default=None)
     user_id = models.ForeignKey(

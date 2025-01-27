@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
+
 class Archievement(models.Model):
     id = models.AutoField(primary_key=True)
     plan_id = models.IntegerField(null=True, blank=True)

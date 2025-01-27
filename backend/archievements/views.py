@@ -1,19 +1,13 @@
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
-from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import BasePermission, IsAuthenticated
 
 from .serializers import ArchievementSerializer
 from .models import Archievement
 from chatrooms.models import ChatRoom
 from testplans.models import TestPlan
 
-from django.contrib.auth import authenticate, logout, get_user_model
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, get_list_or_404
-from datetime import datetime as dt
 
 # 특정 사용자 인증에 대한 class 
 class IsOwner(BasePermission):

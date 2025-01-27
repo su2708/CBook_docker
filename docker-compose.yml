@@ -1,6 +1,6 @@
 services: # 각 서비스 정의
   db:
-    image: mariadb:10.5 # MariaDB 공식 이미지
+    image: mariadb:10.6 # MariaDB 공식 이미지
     container_name: mariadb
     ports: # 포트 매핑 (호스트:컨테이너)
       - "3307:3306"
@@ -21,12 +21,15 @@ services: # 각 서비스 정의
       retries: 5
       start_period: 10s
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - TZ=Asia/Seoul
     volumes:
       - mariadb_data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
 
   backend: # Django Backend
     build: # Dockerfile 경로
@@ -38,11 +41,14 @@ services: # 각 서비스 정의
     volumes: # 볼륨 마운트
       - ./backend/staticfiles:/app/staticfiles
       - media_data:/app/media # 미디어 파일을 위한 볼륨
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - default
     command: >
       sh -c "python manage.py migrate &&
         python manage.py collectstatic --noinput &&
+        python manage.py loaddata message_templates &&
         gunicorn --bind 0.0.0.0:8000 StudyMAIT.wsgi:application"
     depends_on: # 의존 서비스
       db:
@@ -58,6 +64,7 @@ services: # 각 서비스 정의
       - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
       - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
       - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
+      - TZ=Asia/Seoul    
     env_file:
       - .env
 
@@ -71,20 +78,38 @@ services: # 각 서비스 정의
     volumes:
       - ./frontend:/app # 로컬 코드 동기화
       - /app/node_modules # node_modules 제외 (로컬 캐싱)
+      - nextjs_build:/app/.next
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     depends_on:
       backend:
         condition: service_healthy
+    command: >
+      sh -c "npm run start"
     environment:
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-    command: >
-      sh -c "yarn build &&
-        yarn start"
+      - TZ=Asia/Seoul
     env_file:
       - .env
+      
+  nginx:
+    build:
+      context: ./frontend
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      # Next.js static 파일들을 nginx 컨테이너에 마운트
+      - nextjs_build:/usr/share/nginx/html/_next
+      - ./frontend/public:/usr/share/nginx/html/static
+    depends_on:
+      - frontend
+
 
 volumes: # 볼륨 정의
   mariadb_data:
   media_data:
+  nextjs_build:
 
 networks:
   default:

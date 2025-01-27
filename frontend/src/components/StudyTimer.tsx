@@ -1,69 +1,86 @@
-import { useState, useEffect } from "react"
-import { Button } from "./ui/button"
-import { PlayCircle, RotateCcw } from "lucide-react"
-import { Input } from "./ui/input"
+import { useState, useEffect } from "react";
+import { Button } from "./ui/button";
+import { PlayCircle, RotateCcw } from "lucide-react";
+import { Input } from "./ui/input";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/alert-dialog";
 
 export function StudyTimer() {
-  const [hours, setHours] = useState(0)
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
-  const [totalSeconds, setTotalSeconds] = useState(0)
-  const [remainingSeconds, setRemainingSeconds] = useState(0)
-  const [isRunning, setIsRunning] = useState(false)
-  const [progress, setProgress] = useState(0)
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [totalSeconds, setTotalSeconds] = useState(0);
+  const [remainingSeconds, setRemainingSeconds] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null
+    let interval: NodeJS.Timeout | null = null;
 
     if (isRunning && remainingSeconds > 0) {
       interval = setInterval(() => {
         setRemainingSeconds((prev) => {
           if (prev <= 1) {
-            setIsRunning(false)
-            alert("시간이 다 되었습니다!") // 사용자에게 알림
-            return 0
+            setIsRunning(false);
+            setShowAlert(true); // Show modal instead of alert
+            return 0;
           }
-          return prev - 1
-        })
-      }, 1000)
+          return prev - 1;
+        });
+      }, 1000);
     }
 
     return () => {
-      if (interval) clearInterval(interval)
-    }
-  }, [isRunning, remainingSeconds])
+      if (interval) clearInterval(interval);
+    };
+  }, [isRunning, remainingSeconds]);
 
   const handleStart = () => {
-    const totalTimeInSeconds = hours * 3600 + minutes * 60 + seconds
-    setTotalSeconds(totalTimeInSeconds)
-    setRemainingSeconds(totalTimeInSeconds)
-    setIsRunning(true)
-  }
+    const totalTimeInSeconds = hours * 3600 + minutes * 60 + seconds;
+    setTotalSeconds(totalTimeInSeconds);
+    setRemainingSeconds(totalTimeInSeconds);
+    setIsRunning(true);
+  };
 
   const handleReset = () => {
-    setIsRunning(false)
-    setRemainingSeconds(0)
-    setProgress(0)
-  }
+    setIsRunning(false);
+    setRemainingSeconds(0);
+    setProgress(0);
+  };
 
-  const handleTimeInput = (value: string, setter: React.Dispatch<React.SetStateAction<number>>, max: number) => {
-    const num = Number.parseInt(value, 10)
-    setter(Math.max(0, Math.min(num, max)))
-  }
+  const handleTimeInput = (
+    value: string,
+    setter: React.Dispatch<React.SetStateAction<number>>,
+    max: number
+  ) => {
+    const num = Number.parseInt(value, 10);
+    setter(Math.max(0, Math.min(num, max)));
+  };
 
   useEffect(() => {
     if (remainingSeconds > 0 && totalSeconds > 0) {
-      const progressPercentage = (1 - remainingSeconds / totalSeconds) * 100
-      setProgress(progressPercentage)
+      const progressPercentage = (1 - remainingSeconds / totalSeconds) * 100;
+      setProgress(progressPercentage);
     }
-  }, [remainingSeconds, totalSeconds])
+  }, [remainingSeconds, totalSeconds]);
 
   const formatTime = (seconds: number): string => {
-    const hours = Math.floor(seconds / 3600)
-    const minutes = Math.floor((seconds % 3600) / 60)
-    const secs = seconds % 60
-    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`
-  }
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(secs).padStart(2, "0")}`;
+  };
 
   return (
     <div className="flex flex-col items-center space-y-6 relative w-full h-full">
@@ -86,6 +103,7 @@ export function StudyTimer() {
 
       {!isRunning ? (
         <div className="flex items-center space-x-2">
+          <span className="mr-2">시간 설정</span>
           <Input
             type="number"
             min="0"
@@ -123,7 +141,23 @@ export function StudyTimer() {
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-    </div>
-  )
-}
 
+      <AlertDialog open={showAlert} onOpenChange={setShowAlert}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>시간이 다 되었습니다!</AlertDialogTitle>
+            <AlertDialogDescription>
+              설정한 학습 시간이 완료되었습니다. 휴식을 취하거나 다음 학습을
+              시작하세요.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setShowAlert(false)}>
+              확인
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+  );
+}

@@ -1,19 +1,20 @@
-# Base image
+# Build stage
 FROM node:18-alpine
 
-# Install curl
-RUN apk add --no-cache curl
-
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package.json yarn.lock ./
-RUN yarn --frozen-lockfile --production;
-RUN rm -rf ./.next/cache
+COPY package*.json ./
 
-# Copy the rest of the application
 COPY . .
+# COPY /app/.next/static /usr/share/nginx/html/_next/static
+# COPY /app/public /usr/share/nginx/html/static
+# COPY /app/.next/static ./.next/static
 
-# Expose port
+RUN npm install
+RUN npm run build
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime && echo "Asia/Seoul" > /etc/timezone
+
 EXPOSE 3000
+
+ENV PORT 3000
+ENV NEXT_PUBLIC_API_URL http://localhost:8000

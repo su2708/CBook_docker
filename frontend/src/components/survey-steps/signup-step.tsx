@@ -1,80 +1,90 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Eye, EyeOff, Check } from "lucide-react"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
-import { useApi } from "../../hooks/useApi"
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { useApi } from "../../hooks/useApi";
 
 interface SignupStepProps {
   values: {
-    username: string
-    password: string
-    passwordConfirm: string
-  }
-  onChange: (field: string, value: string) => void
-  onNext: () => void
+    username: string;
+    password: string;
+    passwordConfirm: string;
+  };
+  onChange: (field: string, value: string) => void;
+  onNext: () => void;
 }
 
 interface ValidationResult {
-  isValid: boolean
-  message: string
+  isValid: boolean;
+  message: string;
 }
 
-const api_base = process.env.NEXT_PUBLIC_API_URL
-
 export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
-  const [showPassword, setShowPassword] = useState(false)
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
-  const [validationResults, setValidationResults] = useState<{ [key: string]: ValidationResult }>({
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+  const [validationResults, setValidationResults] = useState<{
+    [key: string]: ValidationResult;
+  }>({
     username: { isValid: false, message: "" },
     password: { isValid: false, message: "" },
-  })
-  const { apiCall } = useApi()
+  });
+  const { apiCall } = useApi();
 
   const isValid =
     validationResults.username.isValid &&
     validationResults.password.isValid &&
-    values.password === values.passwordConfirm
+    values.password === values.passwordConfirm;
 
   const validateField = async (field: string) => {
     try {
-      const { error, data } = await apiCall<{ [key: string]: string[] }>("/api/v1/accounts/", "POST", {
-        [field]: values[field as keyof typeof values],
-      })
+      const { error, data } = await apiCall<{ [key: string]: string[] }>(
+        "/api/v1/accounts/",
+        "POST",
+        {
+          [field]: values[field as keyof typeof values],
+        }
+      );
 
       if (data && !(field in data)) {
         setValidationResults((prev) => ({
           ...prev,
           [field]: { isValid: true, message: "유효성 검사를 통과했습니다." },
-        }))
+        }));
       } else if (data && field in data) {
         setValidationResults((prev) => ({
           ...prev,
           [field]: { isValid: false, message: data[field][0] },
-        }))
+        }));
       } else if (error) {
-        console.log(data)
-        console.error(`유효성 검사 실패: ${field}`)
+        console.log(data);
+        console.error(`유효성 검사 실패: ${field}`);
         setValidationResults((prev) => ({
           ...prev,
           [field]: { isValid: false, message: "서버 오류가 발생했습니다." },
-        }))
+        }));
       }
     } catch (error) {
-      console.error(`유효성 검사 중 오류 발생: ${field}`, error)
+      console.error(`유효성 검사 중 오류 발생: ${field}`, error);
       setValidationResults((prev) => ({
         ...prev,
-        [field]: { isValid: false, message: "오류가 발생했습니다. 다시 시도해 주세요." },
-      }))
+        [field]: {
+          isValid: false,
+          message: "오류가 발생했습니다. 다시 시도해 주세요.",
+        },
+      }));
     }
-  }
+  };
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold text-center">회원가입</h1>
-      <p className="text-sm text-gray-500 text-center">사용자 이름과 비밀번호를 입력 후 <br />각각 체크 표시를 눌러서 유효성 검사를 해주세요.</p>
+      <p className="text-sm text-gray-500 text-center">
+        사용자 이름과 비밀번호를 입력 후 <br />
+        각각 확인 버튼을 눌러서 유효성 검사를 해주세요.
+      </p>
 
       <div className="space-y-4">
         <div className="space-y-2">
@@ -82,26 +92,31 @@ export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
             <Label htmlFor="username">사용자 이름</Label>
             <span className="text-sm text-gray-500">(한글도 가능)</span>
           </div>
-          <div className="relative">
+          <div className="flex space-x-2 items-center">
             <Input
               id="username"
-              className="bg-background border-None pr-10"
+              className="bg-background border-None flex-grow"
               placeholder="ex) username"
               value={values.username}
               onChange={(e) => onChange("username", e.target.value)}
             />
             <Button
               type="button"
-              variant="ghost"
-              size="sm"
-              className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
+              variant="outline"
+              className="h-9"
               onClick={() => validateField("username")}
             >
-              <Check className="h-4 w-4" />
+              확인
             </Button>
           </div>
           {validationResults.username.message && (
-            <p className={`text-xs ${validationResults.username.isValid ? "text-green-500" : "text-rose-500"}`}>
+            <p
+              className={`text-xs ${
+                validationResults.username.isValid
+                  ? "text-green-500"
+                  : "text-rose-500"
+              }`}
+            >
               {validationResults.username.message}
             </p>
           )}
@@ -110,38 +125,51 @@ export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <Label htmlFor="password">비밀번호</Label>
-            <span className="text-sm text-gray-500">(영문 및 숫자, 8자 이상)</span>
+            <span className="text-sm text-gray-500">
+              (영문 및 숫자, 8자 이상)
+            </span>
           </div>
-          <div className="relative">
-            <Input
-              id="password"
-              className="bg-background border-None pr-20"
-              type={showPassword ? "text" : "password"}
-              placeholder="ex) qwer1234"
-              value={values.password}
-              onChange={(e) => onChange("password", e.target.value)}
-            />
+          <div className="flex space-x-2 items-center">
+            <div className="relative flex-grow">
+              <Input
+                id="password"
+                className="bg-background border-None pr-10 w-full"
+                type={showPassword ? "text" : "password"}
+                placeholder="ex) qwer1234"
+                value={values.password}
+                onChange={(e) => onChange("password", e.target.value)}
+              />
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
             <Button
               type="button"
-              variant="ghost"
-              size="sm"
-              className="absolute right-10 top-0 h-full px-3 hover:bg-transparent"
+              variant="outline"
+              className="h-9"
               onClick={() => validateField("password")}
             >
-              <Check className="h-4 w-4" />
-            </Button>
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              확인
             </Button>
           </div>
           {validationResults.password.message && (
-            <p className={`text-xs ${validationResults.password.isValid ? "text-green-500" : "text-red-500"}`}>
+            <p
+              className={`text-xs ${
+                validationResults.password.isValid
+                  ? "text-green-500"
+                  : "text-red-500"
+              }`}
+            >
               {validationResults.password.message}
             </p>
           )}
@@ -150,7 +178,9 @@ export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <Label htmlFor="passwordConfirm">비밀번호 확인</Label>
-            <span className="text-sm text-gray-500">(비밀번호 한 번 더 입력)</span>
+            <span className="text-sm text-gray-500">
+              (비밀번호 한 번 더 입력)
+            </span>
           </div>
           <div className="relative">
             <Input
@@ -167,18 +197,29 @@ export function SignupStep({ values, onChange, onNext }: SignupStepProps) {
               className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
               onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
             >
-              {showPasswordConfirm ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              {showPasswordConfirm ? (
+                <EyeOff className="h-4 w-4" />
+              ) : (
+                <Eye className="h-4 w-4" />
+              )}
             </Button>
           </div>
-          {values.password !== values.passwordConfirm && values.passwordConfirm !== "" && (
-            <p className="text-xs text-red-500">비밀번호가 일치하지 않습니다.</p>
-          )}
+          {values.password !== values.passwordConfirm &&
+            values.passwordConfirm !== "" && (
+              <p className="text-xs text-red-500">
+                비밀번호가 일치하지 않습니다.
+              </p>
+            )}
         </div>
       </div>
 
-      <Button className="w-full py-6 text-lg" onClick={onNext} disabled={!isValid}>
+      <Button
+        className="w-full py-6 text-lg"
+        onClick={onNext}
+        disabled={!isValid}
+      >
         다음
       </Button>
     </div>
-  )
+  );
 }

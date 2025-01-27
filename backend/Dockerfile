@@ -20,6 +20,7 @@ RUN apt-get update && apt-get upgrade -y && \
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime && echo "Asia/Seoul" > /etc/timezone
 
 # 프로젝트 파일 복사
 COPY . .

@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
         destination: "/landing",
         permanent: true,
       },
-    ]
+    ];
   },
 };
 

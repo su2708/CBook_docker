@@ -1,5 +1,6 @@
-from django.apps import AppConfig
 import os
+
+from django.apps import AppConfig
 
 class ReminderConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -9,9 +10,10 @@ class ReminderConfig(AppConfig):
         # RUN_MAIN 환경 변수를 체크하여 메인 프로세스에서만 실행
         if os.environ.get('RUN_MAIN', None) == 'true':
             from .models import ReminderSetting
-            from .scheduler import scheduler
+            from .scheduler import ReminderScheduler
             
             try:
+                scheduler = ReminderScheduler()
                 scheduler.start()
                 print("Main process: Scheduler started")
                 

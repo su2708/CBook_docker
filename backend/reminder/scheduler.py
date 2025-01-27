@@ -1,9 +1,17 @@
+import random
+import logging
+
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore
 from apscheduler.triggers.cron import CronTrigger
 from django.conf import settings
+
+from .models import MessageTemplate
+from testplans.models import TestPlan
 from slack_sdk import WebClient
-import random
+
+logging.basicConfig(level=logging.DEBUG)
+logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 class ReminderScheduler:
     def __init__(self):
@@ -69,11 +77,9 @@ class ReminderScheduler:
 
     @staticmethod
     def send_reminder(test_plan_id, message_style):
-        """실제 알림 전송 함수"""
-        from .models import MessageTemplate
-        from testplans.models import TestPlan
-        
+        """실제 알림 전송 함수"""        
         try:
+            print(f"send_reminder started for test_plan_id={test_plan_id}, style={message_style}")
             test_plan = TestPlan.objects.get(id=test_plan_id)
             user = test_plan.user_id
             

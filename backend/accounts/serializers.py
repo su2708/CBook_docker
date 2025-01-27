@@ -4,7 +4,6 @@ from django.contrib.auth.password_validation import validate_password
 
 User = get_user_model()
 
-# create Serializers
 class SignupSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)
@@ -38,7 +37,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'email',
             'phone',
             'profile_image'
-        ]  # 반환할 필드
+        ]
     
     def get_profile_image(self, obj):
         # Serializer context에서 request 가져오기
@@ -55,4 +54,4 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username','profile_image', 'email', 'phone')  # 수정 가능한 필드
+        fields = ('username','profile_image', 'email', 'phone')

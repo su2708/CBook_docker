@@ -5,8 +5,10 @@ from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .models import ReminderSetting, MessageTemplate
 from .serializers import ReminderSettingSerializer, MessageTemplateSerializer
-from .scheduler import scheduler
+from .scheduler import ReminderScheduler
 from testplans.models import TestPlan
+
+scheduler = ReminderScheduler()
 
 class ReminderSettingViewSet(viewsets.ModelViewSet):
     serializer_class = ReminderSettingSerializer

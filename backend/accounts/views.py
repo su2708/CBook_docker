@@ -1,18 +1,19 @@
+from datetime import datetime as dt
+
 from rest_framework import status
-from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import SignupSerializer, UserProfileSerializer, UserUpdateSerializer
-from django.contrib.auth import authenticate, logout, get_user_model
+
+from django.contrib.auth import authenticate, get_user_model
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
-from datetime import datetime as dt
+
+from .serializers import SignupSerializer, UserProfileSerializer, UserUpdateSerializer
+
 
 User = get_user_model()
 
-# Create your views here.
 @api_view(['POST'])
 @authentication_classes([]) # 전역 인증 설정 무시
 @permission_classes([AllowAny]) # 전역 IsAuthenticated 설정 무시
@@ -86,3 +87,21 @@ def profile(request):
                 "user": serializer.data
             }, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def withdrawal(request):
+    user = request.user  # JWT 인증된 사용자
+
+    password = request.data.get('password')
+    if not password:
+        return Response({"message": "비밀번호를 입력해주세요."}, status=status.HTTP_400_BAD_REQUEST)
+
+    # 비밀번호 검증
+    if not user.check_password(password):
+        return Response({"message": "비밀번호가 올바르지 않습니다."}, status=status.HTTP_400_BAD_REQUEST)
+
+    # 사용자 삭제
+    user.delete()
+    return Response({"message": "회원 탈퇴가 성공적으로 완료되었습니다."}, status=status.HTTP_200_OK)
