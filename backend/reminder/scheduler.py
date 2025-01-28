@@ -98,18 +98,18 @@ def schedule_reminder(reminder_id, test_plan_id, start_hour, start_minute, end_h
     
     # 현재 시간과 시작 시간 + 인터벌 시간 비교
     for n in range((end_hour - start_hour)+1):
-      if (current_hour == start_hour+interval_hours*n) and current_minute == start_minute:
-          logging.info(f"Triggering reminder {job_id} at {current_hour}:{current_minute}")
-          
-          try:
-              send_reminder(test_plan_id, message_style)
-              logging.info(f"Reminder job {job_id} executed successfully.")
-              break
-          except Exception as e:
-              logging.error(f"Error executing reminder job {job_id}: {str(e)}")
-      
-      else:
-          logging.info(f"Skipping reminder {job_id}, not the scheduled time.")
+        if (current_hour == start_hour+interval_hours*n) and current_minute == start_minute:
+            logging.info(f"Triggering reminder {job_id} at {current_hour}:{current_minute}")
+            
+            try:
+                send_reminder(test_plan_id, message_style)
+                logging.info(f"Reminder job {job_id} executed successfully.")
+                break
+            except Exception as e:
+                logging.error(f"Error executing reminder job {job_id}: {str(e)}")
+        
+        else:
+            logging.info(f"Skipping reminder {job_id}, not the scheduled time.")
 
 def start():
     """스케줄러 시작"""

@@ -8,6 +8,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         logging.info("Starting scheduler process...")
         try:
-            start()  # 블로킹 스케줄러 실행
+            start()
         except KeyboardInterrupt:
             logging.info("Scheduler terminated gracefully.")

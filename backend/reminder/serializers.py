@@ -10,9 +10,17 @@ class MessageTemplateSerializer(serializers.ModelSerializer):
 class ReminderSettingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReminderSetting
-        fields = ['reminder_id', 'test_plan', 'start_hour', 'start_minute', 
-                 'end_hour', 'end_minute', 'interval_hours', 
-                 'message_style', 'is_active']
+        fields = [
+            'reminder_id',
+            'test_plan',
+            'start_hour',
+            'start_minute',
+            'end_hour',
+            'end_minute',
+            'interval_hours', 
+            'message_style',
+            'is_active'
+        ]
         read_only_fields = ['reminder_id']
 
     def validate(self, data):
