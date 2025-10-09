@@ -25,7 +25,7 @@ django-cors-headers==4.6.0
 django-extensions==3.2.3
 django-seed==0.3.1
 djangorestframework==3.14.0
-djangorestframework-simplejwt==5.3.1
+djangorestframework-simplejwt==5.5.1
 executing==2.1.0
 faiss-cpu==1.9.0
 Faker==33.1.0
