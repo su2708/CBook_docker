@@ -64,7 +64,7 @@ mysqlclient==2.2.7
 narwhals==1.20.1
 numpy==1.26.4
 openai==1.58.1
-orjson==3.10.13
+orjson==3.11.6
 packaging==24.2
 pandas==2.2.3
 parso==0.8.4
